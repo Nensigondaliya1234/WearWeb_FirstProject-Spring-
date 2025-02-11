@@ -7,6 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>signup</h2>
+<form action="resetPassword" method="post">
+        email:<input type="email" >
+        <br><br>
+        <input type="submit" name="Send">
+</form>
+<a href="Login"></a>
 </body>
 </html>
