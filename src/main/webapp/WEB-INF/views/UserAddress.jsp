@@ -1,10 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
+    <title>User Address</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -16,34 +15,32 @@
             margin: 0;
         }
 
-        .login-container {
+        .address-container {
             background: #fff;
             border-radius: 10px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            padding: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            padding: 20px 30px;
             width: 100%;
             max-width: 400px;
             text-align: center;
         }
 
-        .login-container h2 {
+        .address-container h2 {
             margin-bottom: 20px;
             color: #333;
-            font-weight: bold;
         }
 
-        .login-container input[type="text"],
-        .login-container input[type="password"] {
+        .address-container input[type="text"],
+        .address-container input[type="number"] {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
             box-sizing: border-box;
-            font-size: 14px;
         }
 
-        .login-container button {
+        .address-container button {
             width: 100%;
             padding: 10px;
             background: #ff758c;
@@ -56,38 +53,50 @@
             transition: background 0.3s ease;
         }
 
-        .login-container button:hover {
+        .address-container button:hover {
             background: linear-gradient(135deg, #e66782, #e6739c);
         }
 
-        .signup-link {
+        .back-link {
             margin-top: 20px;
-            color: #888;
         }
 
-        .signup-link a {
+        .back-link a {
             color: #ff758c;
             text-decoration: none;
             font-weight: bold;
         }
 
-        .signup-link a:hover {
+        .back-link a:hover {
             text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <div class="login-container">
-        <form action="savelogin" method="post">
-            <h2>Login</h2>
-            <input type="text" name="username" placeholder="Username" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <button type="submit">Login</button>
-            <p class="signup-link">Don't have an account? <a href="signup">Sign Up</a></p>
-             <a href="forgetpassword">forgetpassword</a>
-             <br><br>
-             <a href="home">home</a>
+    <div class="address-container">
+        <h2>User Address</h2>
+        <form action="saveuseraddress" method="post">
+            <input type="hidden" name="user_id" value="12345">
+            
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" value="Mr." required>
+            
+            <label for="unitName">Unit Name</label>
+            <input type="text" id="unitName" name="unitName" value="Apt 101" required>
+            
+            <label for="street">Street</label>
+            <input type="text" id="street" name="street" value="123 Main St" required>
+            
+            <label for="landMark">Landmark</label>
+            <input type="text" id="landMark" name="landMark" value="Near Central Park" required>
+            
+            <label for="zipCode">Zip Code</label>
+            <input type="number" id="zipCode" name="zipCode" value="10001" required>
+            
+            <button type="submit">Update Address</button>
         </form>
+        
+        <p class="back-link"><a href="userProfile">Back to Profile</a></p>
     </div>
 </body>
 </html>

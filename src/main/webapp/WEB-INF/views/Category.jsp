@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
+    <title>Category Form</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -16,34 +16,31 @@
             margin: 0;
         }
 
-        .login-container {
+        .category-container {
             background: #fff;
             border-radius: 10px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            padding: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            padding: 20px 30px;
             width: 100%;
             max-width: 400px;
             text-align: center;
         }
 
-        .login-container h2 {
+        .category-container h2 {
             margin-bottom: 20px;
             color: #333;
-            font-weight: bold;
         }
 
-        .login-container input[type="text"],
-        .login-container input[type="password"] {
+        .category-container input[type="text"] {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
             box-sizing: border-box;
-            font-size: 14px;
         }
 
-        .login-container button {
+        .category-container button {
             width: 100%;
             padding: 10px;
             background: #ff758c;
@@ -56,37 +53,17 @@
             transition: background 0.3s ease;
         }
 
-        .login-container button:hover {
+        .category-container button:hover {
             background: linear-gradient(135deg, #e66782, #e6739c);
-        }
-
-        .signup-link {
-            margin-top: 20px;
-            color: #888;
-        }
-
-        .signup-link a {
-            color: #ff758c;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .signup-link a:hover {
-            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <div class="login-container">
-        <form action="savelogin" method="post">
-            <h2>Login</h2>
-            <input type="text" name="username" placeholder="Username" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <button type="submit">Login</button>
-            <p class="signup-link">Don't have an account? <a href="signup">Sign Up</a></p>
-             <a href="forgetpassword">forgetpassword</a>
-             <br><br>
-             <a href="home">home</a>
+    <div class="category-container">
+        <form action="savecategory" method="post">
+            <h2>Category Form</h2>
+            <input type="text" name="categoryName" placeholder="Category Name" required>
+            <button type="submit">Submit</button>
         </form>
     </div>
 </body>
