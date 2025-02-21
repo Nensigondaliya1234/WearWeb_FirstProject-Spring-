@@ -1,6 +1,7 @@
 package com.grownited.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,5 +37,29 @@ public class ReviewsController {
 		List<ReviewsEntity> reviewsList = repositoryreviews.findAll();
 		model.addAttribute("reviewsList", reviewsList);
 	return "ListReviews";
+	}
+	
+	@GetMapping("viewreviews")
+	public String viewreviews(Integer reviewsId, Model model) {
+		// ?
+		System.out.println("id ===> " + reviewsId);
+		Optional<ReviewsEntity> op = repositoryreviews.findById(reviewsId);
+		if (op.isEmpty()) {
+			// not found
+		} else {
+			// data found
+			ReviewsEntity reviews = op.get();
+			// send data to jsp ->
+			model.addAttribute("reviews", reviews);
+
+		}
+
+		return "ViewReviews";
+	}
+	
+	@GetMapping("deletereviews")
+	public String deletereviews(Integer reviewsId) {
+		repositoryreviews.deleteById(reviewsId);//delete from members where memberID = :memberId
+		return "redirect:/listreviews";
 	}
 }

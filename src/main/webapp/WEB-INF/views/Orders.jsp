@@ -79,7 +79,7 @@
             <input type="hidden" name="order_id" value="12345">
             
             <label for="total_amount">Total Amount ($)</label>
-            <input type="number" id="total_amount" name="total_amount" value="199.98" step="0.01" required>
+            <input type="number" id="total_amount" name="totalAmount" value="199" step="1" required>
             
             <label for="status">Order Status</label>
             <select id="status" name="status" required>

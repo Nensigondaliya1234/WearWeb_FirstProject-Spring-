@@ -17,6 +17,7 @@
 
 			<tr>
 				<td>${m.cityname }</td>
+				<td><a href="viewcity?cityId=${m.cityId}">View</a> | <a href="deletecity?cityId=${m.cityId}">Delete</a> | Edit </td>
 			</tr>
 		</c:forEach>
 	</table>

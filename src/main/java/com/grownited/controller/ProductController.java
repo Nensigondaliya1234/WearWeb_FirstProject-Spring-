@@ -1,6 +1,7 @@
 package com.grownited.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,5 +45,29 @@ public class ProductController {
 		List<ProductEntity> productList = repositoryproduct.findAll();
 		model.addAttribute("productList", productList);
 	return "ListProduct";
+	}
+	
+	@GetMapping("viewproduct")
+	public String viewproduct(Integer productId, Model model) {
+		// ?
+		System.out.println("id ===> " + productId);
+		Optional<ProductEntity> op = repositoryproduct.findById(productId);
+		if (op.isEmpty()) {
+			// not found
+		} else {
+			// data found
+			ProductEntity product = op.get();
+			// send data to jsp ->
+			model.addAttribute("product", product);
+
+		}
+
+		return "ViewProduct";
+	}
+	
+	@GetMapping("deleteproduct")
+	public String deleteproduct(Integer productId) {
+		repositoryproduct.deleteById(productId);//delete from members where memberID = :memberId
+		return "redirect:/listproduct";
 	}
 }

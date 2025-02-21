@@ -26,6 +26,7 @@
 				<td>${m.productImageURL2 }</td>
 				<td>${m.productImageURL3 }</td>
 				<td>${m.quantity }</td>
+				<td><a href="viewproduct?productId=${m.productId}">View</a> | <a href="deleteproduct?productId=${m.productId}">Delete</a> | Edit </td>
 			</tr>
 		</c:forEach>
 	</table>

@@ -8,9 +8,11 @@
 
 </head>
 <body>
-<h2>View Wishlist</h2>
+<h2>View Orders</h2>
 
-Wishlist: ${wishlist.wishlistId }<br>
+Orders : ${order.orderId }<br>
+TotalAmound : ${order.totalAmount }<br>
+Status : ${order.status }<br>
 
 
 </body>

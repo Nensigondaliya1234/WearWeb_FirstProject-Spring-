@@ -78,7 +78,7 @@
             <input type="hidden" name="category_id" value="12345">
             
             <label for="subCategoryName">Sub-Category Name</label>
-            <input type="text" id="subCategoryName" name="subCategoryName" value="Electronics" required>
+            <input type="text" id="subCategoryname" name="subCategoryname" value="Electronics" required>
             
             <button type="submit">Update Sub-Category</button>
         </form>

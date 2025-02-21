@@ -82,10 +82,10 @@
             <input type="number" id="quantity" name="quantity" value="2" required>
             
             <label for="price">Price per Item ($)</label>
-            <input type="number" id="price" name="price" value="99.99" step="0.01" required>
+            <input type="number" id="price" name="price" value="99" step="1" required>
             
             <label for="total_amount">Total Amount ($)</label>
-            <input type="number" id="total_amount" name="total_amount" value="199.98" step="0.01" required>
+            <input type="number" id="total_amount" name="total_amount" value="199" step="0.01" required>
             
             <label for="status">Order Status</label>
             <select id="status" name="status" required>

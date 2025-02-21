@@ -1,6 +1,7 @@
 package com.grownited.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,4 +37,30 @@ public class SubCategoryController {
 		model.addAttribute("subcategoryList", subcategoryList);
 	return "ListSubCategory";
 	}
+	
+	
+	@GetMapping("viewsubcategory")
+	public String viewsubcategory(Integer subCategoryId, Model model) {
+		// ?
+		System.out.println("id ===> " + subCategoryId);
+		Optional<SubCategoryEntity> op = repositorySubCategory.findById(subCategoryId);
+		if (op.isEmpty()) {
+			// not found
+		} else {
+			// data found
+			SubCategoryEntity subcategory = op.get();
+			// send data to jsp ->
+			model.addAttribute("subcategory", subcategory);
+
+		}
+
+		return "ViewSubCategory";
+	}
+	
+	@GetMapping("deletesubcategory")
+	public String deletesubcategory(Integer subCategoryId) {
+		repositorySubCategory.deleteById(subCategoryId);//delete from members where memberID = :memberId
+		return "redirect:/listsubcategory";
+	}
+	
 }

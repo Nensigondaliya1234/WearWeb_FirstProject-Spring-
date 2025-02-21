@@ -1,5 +1,6 @@
 package com.grownited.controller;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,6 +37,30 @@ public class StateController {
 		List<StateEntity> stateList = repositorystate.findAll();
 		model.addAttribute("stateList", stateList);
 	return "ListState";
+	}
+	
+	@GetMapping("viewstate")
+	public String viewuser(Integer stateId, Model model) {
+		// ?
+		System.out.println("id ===> " + stateId);
+		Optional<StateEntity> op = repositorystate.findById(stateId);
+		if (op.isEmpty()) {
+			// not found
+		} else {
+			// data found
+			StateEntity state = op.get();
+			// send data to jsp ->
+			model.addAttribute("state", state);
+
+		}
+
+		return "ViewState";
+	}
+	
+	@GetMapping("deletestate")
+	public String deletestate(Integer stateId) {
+		repositorystate.deleteById(stateId);//delete from members where memberID = :memberId
+		return "redirect:/liststate";
 	}
 	
     

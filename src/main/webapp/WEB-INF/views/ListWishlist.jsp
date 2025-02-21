@@ -17,6 +17,7 @@
 
 			<tr>
 				<td>${m.wishlistId }</td>
+				<td><a href="viewwishlist?wishlistId=${m.wishlistId}">View</a> | <a href="deletewishlist?wishlistId=${m.wishlistId}">Delete</a> | Edit </td>
 			</tr>
 		</c:forEach>
 	</table>

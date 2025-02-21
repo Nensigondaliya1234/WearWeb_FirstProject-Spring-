@@ -17,6 +17,7 @@
 
 			<tr>
 				<td>${m.quantity }</td>
+				<td><a href="viewcart?cartId=${m.cartId}">View</a> | <a href="deletecart?cartId=${m.cartId}">Delete</a> | Edit </td>
 			</tr>
 		</c:forEach>
 	</table>

@@ -19,6 +19,7 @@
 				<td>${m.orderId }</td>
 				<td>${m.totalAmount }</td>
 				<td>${m.status }</td>
+				<td><a href="vieworders?orderId=${m.orderId}">View</a> | <a href="deleteorders?orderId=${m.orderId}">Delete</a> | Edit </td>
 			</tr>
 		</c:forEach>
 	</table>

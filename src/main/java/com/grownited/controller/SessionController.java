@@ -1,7 +1,7 @@
 package com.grownited.controller;
 
-import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import com.grownited.entity.UserEntity;
 import com.grownited.repository.SessionRepository;
 import com.grownited.service.MailService;
@@ -47,7 +46,6 @@ public class SessionController {
 		//bcrypt singleton -> single object -> autowired
 		
 		userEntity.setRole("USER");
-		userEntity.setCreatedAt(LocalDateTime.now());
 		// send mail
 		serviceMail.sendWelcomeMail(userEntity.getEmail(), userEntity.getFirstName());
 		repouserEntity.save(userEntity);
@@ -98,4 +96,49 @@ public class SessionController {
       model.addAttribute("userList", userList);
 		return "ListUser";
 	}
+	
+	@PostMapping("authenticate")
+	public String authenticate(String email,String password,Model model) {
+		System.out.println(email);
+		System.out.println(password);
+		
+		Optional<UserEntity> op = repouserEntity.findByEmail(email);
+		if (op.isPresent()) {
+			// true
+			// email
+			UserEntity dbUser = op.get();
+			if (encoder.matches(password, dbUser.getPassword())) {
+				return "redirect:/home";
+			}
+		}
+		model.addAttribute("error","Invalid Credentials");
+		return "Login";
+	}
+	
+	@GetMapping("viewuser")
+	public String viewuser(Integer userId, Model model) {
+		// ?
+		System.out.println("id ===> " + userId);
+		Optional<UserEntity> op = repouserEntity.findById(userId);
+		if (op.isEmpty()) {
+			// not found
+		} else {
+			// data found
+			UserEntity user = op.get();
+			// send data to jsp ->
+			model.addAttribute("user", user);
+
+		}
+
+		return "ViewUser";
+	}
+	
+	@GetMapping("deleteuser")
+	public String deleteuser(Integer userId) {
+		repouserEntity.deleteById(userId);//delete from members where memberID = :memberId
+		return "redirect:/listuser";
+	}
+	
 }
+	
+

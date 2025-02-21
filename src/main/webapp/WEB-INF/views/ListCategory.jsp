@@ -17,6 +17,7 @@
 
 			<tr>
 				<td>${m.categoryname }</td>
+				<td><a href="viewcategory?categoryId=${m.categoryId}">View</a> | <a href="deletecategory?categoryId=${m.categoryId}">Delete</a> | Edit </td>
 			</tr>
 		</c:forEach>
 	</table>

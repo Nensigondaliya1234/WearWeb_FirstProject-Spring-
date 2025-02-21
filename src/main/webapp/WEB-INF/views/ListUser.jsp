@@ -21,6 +21,7 @@
 				<td>${m.email }</td>
 				<td>${m.contactNum }</td>
 				<td>${m.createdAt }</td>
+				<td><a href="viewuser?userId=${m.userId}">View</a> | <a href="deleteuser?userId=${m.userId}">Delete</a> | Edit </td>
 			</tr>
 		</c:forEach>
 	</table>

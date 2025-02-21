@@ -8,9 +8,11 @@
 
 </head>
 <body>
-<h2>View Wishlist</h2>
+<h2>View SubCategory</h2>
 
-Wishlist: ${wishlist.wishlistId }<br>
+SubCategory : ${subcategory.subCategoryId }<br>
+SubCategoryname : ${subcategory.subCategoryname }<br>
+
 
 
 </body>

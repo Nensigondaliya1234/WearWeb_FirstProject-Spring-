@@ -22,6 +22,7 @@
 				<td>${m.street }</td>
 				<td>${m.landMark }</td>
 				<td>${m.zipcode }</td>
+				<td><a href="viewuseraddress?userAddressId=${m.userAddressId}">View</a> | <a href="deleteuseraddress?userAddressId=${m.userAddressId}">Delete</a> | Edit </td>
 			</tr>
 		</c:forEach>
 	</table>

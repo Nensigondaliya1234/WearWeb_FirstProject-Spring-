@@ -8,10 +8,9 @@
 
 </head>
 <body>
-<h2>View Wishlist</h2>
+<h2>View Quantity</h2>
 
-Wishlist: ${wishlist.wishlistId }<br>
-
+Quantity : ${cart.quantity }<br>
 
 </body>
 </html>

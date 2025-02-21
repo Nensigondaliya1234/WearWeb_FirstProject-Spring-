@@ -19,6 +19,7 @@
 				<td>${m.reviewsId }</td>
 				<td>${m.rating }</td>
 				<td>${m.reviewText }</td>
+				<td><a href="viewreviews?reviewsId=${m.reviewsId}">View</a> | <a href="deletereviews?reviewsId=${m.reviewsId}">Delete</a> | Edit </td>
 			</tr>
 		</c:forEach>
 	</table>

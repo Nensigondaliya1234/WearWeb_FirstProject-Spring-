@@ -91,7 +91,7 @@
             <input type="text" id="landMark" name="landMark" value="Near Central Park" required>
             
             <label for="zipCode">Zip Code</label>
-            <input type="number" id="zipCode" name="zipCode" value="10001" required>
+            <input type="number" id="zipCode" name="zipcode" value="10001" required>
             
             <button type="submit">Update Address</button>
         </form>

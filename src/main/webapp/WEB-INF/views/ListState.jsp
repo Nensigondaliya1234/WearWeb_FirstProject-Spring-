@@ -18,6 +18,7 @@
 			<tr>
 				<td>${m.stateId }</td>
 				<td>${m.statename }</td>
+				<td><a href="viewstate?stateId=${m.stateId}">View</a> | <a href="deletestate?stateId=${m.stateId}">Delete</a> | Edit </td>
 			</tr>
 		</c:forEach>
 	</table>

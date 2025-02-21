@@ -62,7 +62,7 @@
     <div class="category-container">
         <form action="savecategory" method="post">
             <h2>Category Form</h2>
-            <input type="text" name="categoryName" placeholder="Category Name" required>
+            <input type="text" name="categoryname" placeholder="categoryname" required>
             <button type="submit">Submit</button>
         </form>
     </div>

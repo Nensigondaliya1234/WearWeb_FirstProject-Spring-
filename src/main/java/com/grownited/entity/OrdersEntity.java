@@ -1,6 +1,5 @@
 package com.grownited.entity;
-
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,7 +16,7 @@ public class OrdersEntity {
 	private String status;
 	private Integer userId;
 	private Integer totalAmount;
-	private LocalDateTime createdAt;
+	private Date createdAt;
 	public Integer getOrderId() {
 		return orderId;
 	}
@@ -42,12 +41,13 @@ public class OrdersEntity {
 	public void setTotalAmount(Integer totalAmount) {
 		this.totalAmount = totalAmount;
 	}
-	public LocalDateTime getCreatedAt() {
+	public Date getCreatedAt() {
 		return createdAt;
 	}
-	public void setCreatedAt(LocalDateTime createdAt) {
+	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
+	
 	
 	
 	

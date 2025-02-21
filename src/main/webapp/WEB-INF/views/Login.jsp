@@ -78,15 +78,15 @@
 </head>
 <body>
     <div class="login-container">
-        <form action="savelogin" method="post">
+        <form action="authenticate" method="post">
             <h2>Login</h2>
-            <input type="text" name="username" placeholder="Username" required>
+            <input type="text" name="email" placeholder="Email" required>
             <input type="password" name="password" placeholder="Password" required>
             <button type="submit">Login</button>
             <p class="signup-link">Don't have an account? <a href="signup">Sign Up</a></p>
              <a href="forgetpassword">forgetpassword</a>
              <br><br>
-             <a href="home">home</a>
+             
         </form>
     </div>
 </body>

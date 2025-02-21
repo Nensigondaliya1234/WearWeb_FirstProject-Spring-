@@ -8,10 +8,9 @@
 
 </head>
 <body>
-<h2>View Wishlist</h2>
+<h2>View AreaName</h2>
 
-Wishlist: ${wishlist.wishlistId }<br>
-
+AreaName : ${area.areaname }<br>
 
 </body>
 </html>

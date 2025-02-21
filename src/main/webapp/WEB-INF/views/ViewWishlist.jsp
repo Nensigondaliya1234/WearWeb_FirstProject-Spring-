@@ -8,10 +8,9 @@
 
 </head>
 <body>
-<h2>View Wishlist</h2>
+<h2>View wishlistList</h2>
 
-Wishlist: ${wishlist.wishlistId }<br>
-
+wishlistList : ${wishlistList.wishlistId }<br>
 
 </body>
 </html>

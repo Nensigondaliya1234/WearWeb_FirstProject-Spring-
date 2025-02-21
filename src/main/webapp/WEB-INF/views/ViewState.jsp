@@ -8,9 +8,11 @@
 
 </head>
 <body>
-<h2>View Wishlist</h2>
+<h2>View State</h2>
 
-Wishlist: ${wishlist.wishlistId }<br>
+State : ${state.stateId }<br>
+Statename : ${state.statename }<br>
+
 
 
 </body>
