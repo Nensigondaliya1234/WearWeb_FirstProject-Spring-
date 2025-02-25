@@ -1,94 +1,165 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup Form</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .signup-container {
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            padding: 20px 30px;
-            width: 100%;
-            max-width: 400px;
-            text-align: center;
-        }
-
-        .signup-container h2 {
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        .signup-container input,
-        .signup-container select {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-
-        .signup-container button {
-            width: 100%;
-            padding: 10px;
-            background: linear-gradient(135deg, #ff758c, #ff7eb3);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background 0.3s ease;
-        }
-
-        .signup-container button:hover {
-            background: linear-gradient(135deg, #e66782, #e6739c);
-        }
-
-        .login-link {
-            margin-top: 20px;
-        }
-
-        .login-link a {
-            color: #ff758c;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .login-link a:hover {
-            text-decoration: underline;
-        }
-    </style>
-</head>
-<body>
-    <div class="signup-container">
-        <form action="saveuser" method="post">
-            <h2>Sign Up</h2>
-            <input type="text" name="firstName" placeholder="First Name" required>
-            <input type="text" name="lastName" placeholder="Last Name" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <select name="gender" required>
-                <option value="" disabled selected>Select Gender</option>
+  <!--begin::Head-->
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>AdminLTE 4 | Register Page</title>
+    <!--begin::Primary Meta Tags-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="title" content="AdminLTE 4 | Register Page" />
+    <meta name="author" content="ColorlibHQ" />
+    <meta
+      name="description"
+      content="AdminLTE is a Free Bootstrap 5 Admin Dashboard, 30 example pages using Vanilla JS."
+    />
+    <meta
+      name="keywords"
+      content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, colorlibhq, colorlibhq dashboard, colorlibhq admin dashboard"
+    />
+    <!--end::Primary Meta Tags-->
+    <!--begin::Fonts-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
+      integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
+      crossorigin="anonymous"
+    />
+    <!--end::Fonts-->
+    <!--begin::Third Party Plugin(OverlayScrollbars)-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.1/styles/overlayscrollbars.min.css"
+      integrity="sha256-tZHrRjVqNSRyWg2wbppGnT833E/Ys0DHWGwT04GiqQg="
+      crossorigin="anonymous"
+    />
+    <!--end::Third Party Plugin(OverlayScrollbars)-->
+    <!--begin::Third Party Plugin(Bootstrap Icons)-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      integrity="sha256-9kPW/n5nn53j4WMRYAxe9c1rCY96Oogo/MKSVdKzPmI="
+      crossorigin="anonymous"
+    />
+    <!--end::Third Party Plugin(Bootstrap Icons)-->
+    <!--begin::Required Plugin(AdminLTE)-->
+    <link rel="stylesheet" href="../../../dist/css/adminlte.css" />
+    <!--end::Required Plugin(AdminLTE)-->
+  </head>
+  <!--end::Head-->
+  <!--begin::Body-->
+  <body class="register-page bg-body-secondary">
+    <div class="register-box">
+      <div class="register-logo">
+        <a href="../index2.html"><b>Sign</b>Up</a>
+      </div>
+      <!-- /.register-logo -->
+      <div class="card">
+        <div class="card-body register-card-body">
+          <p class="register-box-msg">Register a new user</p>
+          <form action="saveuser" method="post">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" name="firstName" placeholder="First Name" />
+              <div class="input-group-text"><span class="bi bi-person"></span></div>
+            </div>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" name="lastName" placeholder="Last Name" />
+              <div class="input-group-text"><span class="bi bi-person"></span></div>
+            </div>
+            <div class="input-group mb-3">
+              <input type="email" class="form-control" name="email" placeholder="Email" />
+              <div class="input-group-text"><span class="bi bi-envelope"></span></div>
+            </div>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" name="contactNum" placeholder="Contact number" />
+              <div class="input-group-text"><span class="bi bi-phone"></span></div>
+            </div>
+            <div class="input-group mb-3">
+              <input type="password" class="form-control" name="password" placeholder="Password" />
+              <div class="input-group-text"><span class="bi bi-lock-fill"></span></div>
+            </div>
+            <div class="input-group mb-3">
+              <select class="form-control" name="gender" required>
+                <option value="">Select Gender</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
                 <option value="other">Other</option>
-            </select>
-            <input type="text" name="contactNum" placeholder="Contact Number" required>
-            <button type="submit">Sign Up</button>
-            <p class="login-link">Already have an account? <a href="login">Login</a></p>
-        </form>
+              </select>
+              <div class="input-group-text"><span class="bi bi-gender-ambiguous"></span></div>
+            </div>
+            <div class="input-group mb-3">
+              <select class="form-control" name="role" required>
+                <option value="">Select Role</option>
+                <option value="USER" name="role">USER</option>
+                <option value="SELLER" name="role">SELLER</option>
+              </select>
+              <div class="input-group-text"><span class="bi bi-person-badge"></span></div>
+            </div>
+            <!--begin::Row-->
+            <div class="row">
+              <div class="col-4">
+               
+              </div>
+              <!-- /.col -->
+              <div class="col-4">
+                <div class="d-grid gap-2">
+                  <button type="submit" class="btn btn-primary">Sign In</button>
+                </div>
+              </div>
+              <!-- /.col -->
+            </div>
+            <!--end::Row-->
+          </form>
+          <p class="mb-0">
+            <a href="login" class="text-center"> I already have a membership </a>
+          </p>
+        </div>
+        <!-- /.register-card-body -->
+      </div>
     </div>
-</body>
+    <!-- /.register-box -->
+    <!--begin::Third Party Plugin(OverlayScrollbars)-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.1/browser/overlayscrollbars.browser.es6.min.js"
+      integrity="sha256-dghWARbRe2eLlIJ56wNB+b760ywulqK3DzZYEpsg2fQ="
+      crossorigin="anonymous"
+    ></script>
+    <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+      integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+      crossorigin="anonymous"
+    ></script>
+    <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
+    <script src="../../../dist/js/adminlte.js"></script>
+    <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
+    <script>
+      const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
+      const Default = {
+        scrollbarTheme: 'os-theme-light',
+        scrollbarAutoHide: 'leave',
+        scrollbarClickScroll: true,
+      };
+      document.addEventListener('DOMContentLoaded', function () {
+        const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
+        if (sidebarWrapper && typeof OverlayScrollbarsGlobal?.OverlayScrollbars !== 'undefined') {
+          OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
+            scrollbars: {
+              theme: Default.scrollbarTheme,
+              autoHide: Default.scrollbarAutoHide,
+              clickScroll: Default.scrollbarClickScroll,
+            },
+          });
+        }
+      });
+    </script>
+    <!--end::OverlayScrollbars Configure-->
+    <!--end::Script-->
+  </body>
+  <!--end::Body-->
 </html>

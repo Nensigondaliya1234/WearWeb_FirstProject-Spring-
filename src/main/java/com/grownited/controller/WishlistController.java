@@ -39,10 +39,10 @@ public class WishlistController {
 	}
 	
 	@GetMapping("viewwishlist")
-	public String viewwishlist(Integer wishlistListId, Model model) {
+	public String viewwishlist(Integer wishlistId, Model model) {
 		// ?
-		System.out.println("id ===> " + wishlistListId);
-		Optional<WishlistEntity> op = repositoryWishlist.findById(wishlistListId);
+		System.out.println("id ===> " + wishlistId);
+		Optional<WishlistEntity> op = repositoryWishlist.findById(wishlistId);
 		if (op.isEmpty()) {
 			// not found
 		} else {
@@ -57,8 +57,8 @@ public class WishlistController {
 	}
 	
 	@GetMapping("deletewishlistList")
-	public String deletewishlistList(Integer wishlistListId) {
-		repositoryWishlist.deleteById(wishlistListId);//delete from members where memberID = :memberId
+	public String deletewishlistList(Integer wishlistId) {
+		repositoryWishlist.deleteById(wishlistId);//delete from members where memberID = :memberId
 		return "redirect:/listwishlistList";
 	}
 }

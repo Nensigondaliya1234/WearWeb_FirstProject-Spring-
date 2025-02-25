@@ -57,7 +57,7 @@ public class OrderDetailController {
 		return "ViewOrderDetail";
 	}
 	
-	@GetMapping("deleteOrderdetail")
+	@GetMapping("deleteorderdetail")
 	public String deleteorderdetail(Integer orderDetailId) {
 		repositoryOrderdetail.deleteById(orderDetailId);//delete from members where memberID = :memberId
 		return "redirect:/listorderdetail";

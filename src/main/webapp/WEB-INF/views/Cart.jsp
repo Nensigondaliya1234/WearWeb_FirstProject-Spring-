@@ -97,13 +97,8 @@
                 <!-- Example Item (Dynamic Item Generation using JSTL or backend) -->
                 <div>
                     <p>Product 1</p>
-                    <input type="number" name="product1_quantity" value="2" min="1">
+                    <input type="number" name="quantity" value="2" min="1">
                 </div>
-                <div>
-                    <p>Product 2</p>
-                    <input type="number" name="product2_quantity" value="1" min="1">
-                </div>
-
                 <!-- If no items in the cart -->
                 <!-- <p class="empty-cart">Your cart is empty.</p> -->
             </div>

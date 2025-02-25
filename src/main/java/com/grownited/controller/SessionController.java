@@ -13,6 +13,8 @@ import com.grownited.entity.UserEntity;
 import com.grownited.repository.SessionRepository;
 import com.grownited.service.MailService;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class SessionController {
 	@Autowired
@@ -45,7 +47,7 @@ public class SessionController {
 		 //memory 
 		//bcrypt singleton -> single object -> autowired
 		
-		userEntity.setRole("USER");
+		//userEntity.setRole("USER");
 		// send mail
 		serviceMail.sendWelcomeMail(userEntity.getEmail(), userEntity.getFirstName());
 		repouserEntity.save(userEntity);
@@ -98,7 +100,7 @@ public class SessionController {
 	}
 	
 	@PostMapping("authenticate")
-	public String authenticate(String email,String password,Model model) {
+	public String authenticate(String email,String password,Model model,HttpSession session) {
 		System.out.println(email);
 		System.out.println(password);
 		
@@ -107,14 +109,36 @@ public class SessionController {
 			// true
 			// email
 			UserEntity dbUser = op.get();
-			if (encoder.matches(password, dbUser.getPassword())) {
-				return "redirect:/home";
+			boolean ans = encoder.matches(password, dbUser.getPassword());
+
+			if (ans==true) {
+				session.setAttribute("user", dbUser); // session -> user set
+				if (dbUser.getRole().equals("ADMIN")) {
+
+					return "redirect:/admindashboard";
+				}  else if (dbUser.getRole().equals("SELLER")){
+					return "redirect:/sellerdashboard";
+
+				}else if (dbUser.getRole().equals("USER")){
+						return "redirect:/home";
+
+				}else {
+				
+					model.addAttribute("error", "Please contact Admin with Error Code #0991");
+					return "Login";
+					}
 			}
 		}
 		model.addAttribute("error","Invalid Credentials");
 		return "Login";
+		
 	}
-	
+	@GetMapping("logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/login";// login url
+	}
+
 	@GetMapping("viewuser")
 	public String viewuser(Integer userId, Model model) {
 		// ?
