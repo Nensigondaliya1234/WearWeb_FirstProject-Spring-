@@ -1,5 +1,7 @@
 package com.grownited.controller;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,6 +28,8 @@ public class OrdersController {
 	public String saveorder(OrdersEntity ordersEntity) {
 		System.out.println(ordersEntity.getStatus());
 		System.out.println(ordersEntity.getTotalAmount());
+		ordersEntity.setCreatedAt(Date.valueOf(LocalDate.now()));
+
 		repositoryOrder.save(ordersEntity);
 
 		return "Orders";

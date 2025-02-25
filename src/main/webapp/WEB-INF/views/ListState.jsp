@@ -12,7 +12,7 @@
 <body>
 
 	<div class="container mt-4">
-		<h2 class="mb-4 text-center">List Cart</h2>
+		<h2 class="mb-4 text-center">List State</h2>
 
 		<table class="table table-bordered table-hover">
 			<thead class="table-dark">

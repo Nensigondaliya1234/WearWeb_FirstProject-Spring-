@@ -1,5 +1,7 @@
 package com.grownited.controller;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,6 +27,8 @@ public class WishlistController {
 	@PostMapping("savewishlist")
 	public String savewishlist(WishlistEntity wishlistEntity) {
 		//
+		wishlistEntity.setCreatedAt(Date.valueOf(LocalDate.now()));
+
 		repositoryWishlist.save(wishlistEntity);
 
 		return "Wishlist";

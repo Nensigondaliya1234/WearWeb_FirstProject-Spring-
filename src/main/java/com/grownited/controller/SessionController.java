@@ -1,5 +1,8 @@
 package com.grownited.controller;
 
+
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -48,6 +51,9 @@ public class SessionController {
 		//bcrypt singleton -> single object -> autowired
 		
 		//userEntity.setRole("USER");
+		userEntity.setCreatedAt(Date.valueOf(LocalDate.now()));
+
+
 		// send mail
 		serviceMail.sendWelcomeMail(userEntity.getEmail(), userEntity.getFirstName());
 		repouserEntity.save(userEntity);

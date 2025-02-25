@@ -1,5 +1,7 @@
 package com.grownited.controller;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,18 +24,11 @@ public class ProductController {
 		//
 	return "Product";
 	}
+	
 	@PostMapping("saveproduct")
 	public String saveproduct(ProductEntity productEntity) {
-		System.out.println(productEntity.getBasePrice());
-		System.out.println(productEntity.getOfferePercentage());
-		System.out.println(productEntity.getOfferePrice());
-		System.out.println(productEntity.getProductDetail());
-		System.out.println(productEntity.getProductImageURL1());
-		System.out.println(productEntity.getProductImageURL2());
-		System.out.println(productEntity.getProductImageURL3());
-		System.out.println(productEntity.getProductName());
-		System.out.println(productEntity.getQuantity());
-		System.out.println(productEntity.getCategoryId());
+		productEntity.setCreatedAt(Date.valueOf(LocalDate.now()));
+
 		repositoryproduct.save(productEntity);
 
 		return "Product";

@@ -1,5 +1,7 @@
 package com.grownited.controller;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,6 +28,8 @@ public class ReviewsController {
 	public String savereviews(ReviewsEntity reviewsEntity) {
 		System.out.println(reviewsEntity.getRating());
 		System.out.println(reviewsEntity.getReviewText());
+		reviewsEntity.setCreatedAt(Date.valueOf(LocalDate.now()));
+
 		repositoryreviews.save(reviewsEntity);
 
 		return "Reviews";
