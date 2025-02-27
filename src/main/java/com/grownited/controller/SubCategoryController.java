@@ -8,18 +8,26 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import com.grownited.entity.CategoryEntity;
 import com.grownited.entity.SubCategoryEntity;
+import com.grownited.repository.CategoryRepository;
 import com.grownited.repository.SubCategoryRepository;
 
 @Controller
 public class SubCategoryController {
 	
 	@Autowired
+	CategoryRepository repositoryCategory;
+	
+	@Autowired
 	SubCategoryRepository repositorySubCategory;
 	
 	@GetMapping("subcategory")
-	public String subcategory() {
-		//
+	public String subcategory(Model model) {
+    List<CategoryEntity> allCategory = repositoryCategory.findAll();// all state
+		
+		model.addAttribute("allCategory",allCategory);
 	return "SubCategory";
 	}
 	@PostMapping("savesubcategory")

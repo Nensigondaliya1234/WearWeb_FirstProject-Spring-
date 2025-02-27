@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,7 +79,17 @@
     <div class="review-container">
         <h2>Product Review</h2>
         <form action="savereviews" method="post">
-            <input type="hidden" name="product_id" value="98765">
+        <br> Product: <select name="productId">
+			<option>Select Product</option>
+			
+			<c:forEach items="${allProduct}" var="s">
+
+					<option value="${s.productId}">${s.productName }</option>
+			
+			</c:forEach>
+
+		</select> <br>
+            
             
             <label for="reviewText">Review Text</label>
             <textarea id="reviewText" name="reviewText" rows="4" required></textarea>

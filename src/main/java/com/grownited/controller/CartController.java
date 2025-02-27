@@ -9,22 +9,35 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.grownited.entity.CartEntity;
+import com.grownited.entity.ProductEntity;
+import com.grownited.entity.UserEntity;
 import com.grownited.repository.CartRepository;
+import com.grownited.repository.ProductRepository;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class CartController {
 	
 	@Autowired
+	ProductRepository repositoryProduct;
+	
+	@Autowired
 	CartRepository repositoryCart;
 	
 	@GetMapping("cart")
-	public String cart() {
+	public String cart(Model model) {
+List<ProductEntity> allProduct = repositoryProduct.findAll();// all state
+		
+		model.addAttribute("allProduct",allProduct);
 		//
 	return "Cart";
 	}
 	@PostMapping("savecart")
-	public String savearea(CartEntity cartEntity) {
-		System.out.println(cartEntity.getQuantity());
+	public String savearea(CartEntity cartEntity,HttpSession session) {
+		UserEntity user = (UserEntity) session.getAttribute("user");
+		Integer userId = user.getUserId(); 
+	    cartEntity.setUserId(userId);
 		repositoryCart.save(cartEntity);
 		return "Cart";
 	

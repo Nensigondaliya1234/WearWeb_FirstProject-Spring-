@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,8 +56,8 @@
             color: #555;
         }
 
-        .cart-items input[type="number"] {
-            width: 50px;
+        .cart-items select, .cart-items input[type="number"] {
+            width: 150px;
             padding: 5px;
             text-align: center;
             font-size: 14px;
@@ -94,13 +97,21 @@
         <!-- Form for updating cart items -->
         <form action="savecart" method="post">
             <div class="cart-items">
-                <!-- Example Item (Dynamic Item Generation using JSTL or backend) -->
+                <!-- Dropdown for selecting a product -->
                 <div>
-                    <p>Product 1</p>
-                    <input type="number" name="quantity" value="2" min="1">
+                    <select name="productId" required>
+          <option >Select Product</option>
+          <c:forEach items="${allProduct}" var="s">
+              <option value="${s.productId}">${s.productName}</option>
+          </c:forEach>
+          </select>
                 </div>
-                <!-- If no items in the cart -->
-                <!-- <p class="empty-cart">Your cart is empty.</p> -->
+
+                <!-- Quantity input -->
+                <div>
+                    <p>Quantity</p>
+                    <input type="number" name="quantity" value="1" min="1" required>
+                </div>
             </div>
 
             <!-- Submit button for updating cart or proceeding to checkout -->

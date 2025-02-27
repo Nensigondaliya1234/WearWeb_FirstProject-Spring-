@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.grownited.entity.AreaEntity;
+import com.grownited.entity.CityEntity;
 import com.grownited.repository.AreaRepository;
+import com.grownited.repository.CityRepository;
 
 @Controller
 public class AreaController {
@@ -18,8 +20,14 @@ public class AreaController {
 	@Autowired
 	AreaRepository repositoryArea;
 	
+	@Autowired
+	CityRepository repositoryCity;
+	
 	@GetMapping("area")
-	public String area() {
+	public String area(Model model) {
+     List<CityEntity> allCity = repositoryCity.findAll();// all state
+		
+		model.addAttribute("allCity",allCity);
 		//
 	return "Area";
 	}

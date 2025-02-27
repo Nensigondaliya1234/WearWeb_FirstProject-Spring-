@@ -16,6 +16,7 @@ public class UserAddressEntity {
    private String title;
    private String unitName;
    private String street;
+   private String addressDetail;
    private String landMark;
    private Integer cityId;
    private Integer stateId;
@@ -50,6 +51,12 @@ public String getStreet() {
 }
 public void setStreet(String street) {
 	this.street = street;
+}
+public String getAddressDetail() {
+	return addressDetail;
+}
+public void setAddressDetail(String addressDetail) {
+	this.addressDetail = addressDetail;
 }
 public String getLandMark() {
 	return landMark;

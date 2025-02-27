@@ -11,7 +11,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.grownited.entity.OrdersEntity;
+import com.grownited.entity.UserEntity;
 import com.grownited.repository.OrderRepository;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class OrdersController {
@@ -25,9 +28,10 @@ public class OrdersController {
 	return "Orders";
 	}
 	@PostMapping("saveorder")
-	public String saveorder(OrdersEntity ordersEntity) {
-		System.out.println(ordersEntity.getStatus());
-		System.out.println(ordersEntity.getTotalAmount());
+	public String saveorder(OrdersEntity ordersEntity,HttpSession session) {
+		UserEntity user = (UserEntity) session.getAttribute("user");
+		Integer userId = user.getUserId(); 
+		ordersEntity.setUserId(userId);
 		ordersEntity.setCreatedAt(Date.valueOf(LocalDate.now()));
 
 		repositoryOrder.save(ordersEntity);

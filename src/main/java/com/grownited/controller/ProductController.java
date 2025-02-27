@@ -10,18 +10,33 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import com.grownited.entity.CategoryEntity;
 import com.grownited.entity.ProductEntity;
+import com.grownited.entity.SubCategoryEntity;
+import com.grownited.repository.CategoryRepository;
 import com.grownited.repository.ProductRepository;
+import com.grownited.repository.SubCategoryRepository;
 
 @Controller
 public class ProductController {
 	
 	@Autowired
+	CategoryRepository repositoryCategory;
+	
+	@Autowired
+	SubCategoryRepository repositorySubCategory;
+	
+	@Autowired
 	ProductRepository repositoryproduct;
 	
 	@GetMapping("product")
-	public String product() {
-		//
+	public String product(Model model) {
+    List<CategoryEntity> allCategory = repositoryCategory.findAll();// all state
+	model.addAttribute("allCategory",allCategory);
+	
+	List<SubCategoryEntity> allSubCategory = repositorySubCategory.findAll();// all state
+	model.addAttribute("allSubCategory",allSubCategory);
 	return "Product";
 	}
 	

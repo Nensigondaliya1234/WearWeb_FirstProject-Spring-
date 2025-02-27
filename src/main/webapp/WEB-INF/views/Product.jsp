@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,6 +68,27 @@
         <form action="saveproduct" method="post">
             <h2>Add Product</h2>
             <input type="text" name="productName" placeholder="Product Name" required>
+		<div class="form-group">
+                <label for="categoryId">Category</label>
+                <select name="categoryId" id="categoryId" class="form-control" required>
+                    <option value="">Select Category</option>
+                    <c:forEach items="${allCategory}" var="s">
+                        <option value="${s.categoryId}">${s.categoryname}</option>
+                    </c:forEach>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="subCategoryId">SubCategory</label>
+                <select name="subCategoryId" id="subCategoryId" class="form-control" required>
+                    <option value="">Select SubCategory</option>
+                    <c:forEach items="${allSubCategory}" var="s">
+                        <option value="${s.subCategoryId}">${s.subCategoryname}</option>
+                    </c:forEach>
+                </select>
+            </div>
+            
+		<br>
             <input type="number" name="basePrice" placeholder="Base Price" required>
             <input type="number" name="offerePrice" placeholder="Offer Price" required>
             <input type="number" name="offerePercentage" placeholder="Offer Percentage" required>

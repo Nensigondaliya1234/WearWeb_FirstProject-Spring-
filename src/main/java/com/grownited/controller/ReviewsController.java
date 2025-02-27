@@ -10,24 +10,35 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import com.grownited.entity.ProductEntity;
 import com.grownited.entity.ReviewsEntity;
+import com.grownited.entity.UserEntity;
+import com.grownited.repository.ProductRepository;
 import com.grownited.repository.ReviewsRepository;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class ReviewsController {
 	
 	@Autowired
+	ProductRepository repositoryProduct;
+	
+	@Autowired
 	ReviewsRepository repositoryreviews;
 	
 	@GetMapping("reviews")
-	public String reviews() {
-		//
+	public String reviews(Model model) {
+List<ProductEntity> allProduct = repositoryProduct.findAll();// all state
+		
+		model.addAttribute("allProduct",allProduct);
 	return "Reviews";
 	}
 	@PostMapping("savereviews")
-	public String savereviews(ReviewsEntity reviewsEntity) {
-		System.out.println(reviewsEntity.getRating());
-		System.out.println(reviewsEntity.getReviewText());
+	public String savereviews(ReviewsEntity reviewsEntity,HttpSession session) {
+		UserEntity user = (UserEntity) session.getAttribute("user");
+		Integer userId = user.getUserId(); 
+		reviewsEntity.setUserId(userId);
 		reviewsEntity.setCreatedAt(Date.valueOf(LocalDate.now()));
 
 		repositoryreviews.save(reviewsEntity);

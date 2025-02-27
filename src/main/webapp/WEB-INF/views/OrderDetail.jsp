@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,16 +79,12 @@
     <div class="order-container">
         <h2>Order Details</h2>
         <form action="saveorderdetail" method="post">
-            <input type="hidden" name="order_id" value="12345">
             
             <label for="quantity">Quantity</label>
-            <input type="number" id="quantity" name="quantity" value="2" required>
+            <input type="number" id="quantity" name="quantity"  required>
             
-            <label for="price">Price per Item ($)</label>
-            <input type="number" id="price" name="price" value="99" step="1" required>
-            
-            <label for="total_amount">Total Amount ($)</label>
-            <input type="number" id="total_amount" name="total_amount" value="199" step="0.01" required>
+            <label for="price">Price</label>
+            <input type="number" id="price" name="price"   required>
             
             <label for="status">Order Status</label>
             <select id="status" name="status" required>
@@ -94,6 +93,24 @@
                 <option value="Delivered">Delivered</option>
                 <option value="Cancelled">Cancelled</option>
             </select>
+
+    <br><br>
+      <select name="productId" required>
+          <option >Select Product</option>
+          <c:forEach items="${allProduct}" var="s">
+              <option value="${s.productId}">${s.productName}</option>
+          </c:forEach>
+      </select>
+      <br><br>
+<!-- Order Dropdown -->
+ <label for="order">Order</label>
+<select id="order" name="orderId" required>
+    <option value="orderId">Select Order</option>
+    <c:forEach items="${allOrder}" var="order">
+        <option value="${order.orderId}">${order.status}</option>
+    </c:forEach>
+</select>
+
             
             <button type="submit">Update Order</button>
         </form>
