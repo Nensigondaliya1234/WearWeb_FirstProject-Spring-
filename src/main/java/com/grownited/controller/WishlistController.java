@@ -10,9 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import com.grownited.entity.ProductEntity;
 import com.grownited.entity.UserEntity;
 import com.grownited.entity.WishlistEntity;
+import com.grownited.repository.ProductRepository;
 import com.grownited.repository.WishlistRepository;
 
 import jakarta.servlet.http.HttpSession;
@@ -21,11 +22,16 @@ import jakarta.servlet.http.HttpSession;
 public class WishlistController {
 	
 	@Autowired
+	ProductRepository repositoryProduct;
+	
+	@Autowired
 	WishlistRepository repositoryWishlist;
 	
 	@GetMapping("wishlist")
-	public String wishlist() {
-		//
+	public String wishlist(Model model) {
+     List<ProductEntity> allProduct = repositoryProduct.findAll();// all state
+		
+		model.addAttribute("allProduct",allProduct);
 	return "Wishlist";
 	}
 	@PostMapping("savewishlist")
@@ -66,9 +72,9 @@ public class WishlistController {
 		return "ViewWishlist";
 	}
 	
-	@GetMapping("deletewishlistList")
-	public String deletewishlistList(Integer wishlistId) {
+	@GetMapping("deletewishlist")
+	public String deletewishlist(Integer wishlistId) {
 		repositoryWishlist.deleteById(wishlistId);//delete from members where memberID = :memberId
-		return "redirect:/listwishlistList";
+		return "redirect:/listwishlist";
 	}
 }

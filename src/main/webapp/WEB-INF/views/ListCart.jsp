@@ -1,43 +1,117 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>List Cart</title>
-<!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+<title>Admin | List Cart</title>
+
+<jsp:include page="AdminCss.jsp"></jsp:include>
+
+
+<link  href="https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
+
+
 </head>
 <body>
+	<jsp:include page="AdminHeader.jsp"></jsp:include>
 
-	<div class="container mt-4">
-		<h2 class="mb-3 text-center">List Cart</h2>
+	<jsp:include page="AdminSidebar.jsp"></jsp:include>
 
-		<table class="table table-bordered table-striped">
-			<thead class="table-dark">
-				<tr>
-					<th>Quantity</th>
-					<th>Actions</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${cartList}" var="m">
-					<tr>
-						<td>${m.quantity}</td>
-						<td>
-							<a href="viewcart?cartId=${m.cartId}" class="btn btn-primary btn-sm">View</a>
-							<a href="deletecart?cartId=${m.cartId}" class="btn btn-danger btn-sm">Delete</a>
-							<a href="editcart?cartId=${m.cartId}" class="btn btn-warning btn-sm">Edit</a>
-						</td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-	</div>
+	<main id="main" class="main">
 
-	<!-- Bootstrap JS Bundle -->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+		<div class="pagetitle">
+			<h1>List Cart</h1>
+			<nav>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
+					<li class="breadcrumb-item active">List Cart</li>
+				</ol>
+			</nav>
+		</div>
+		<!-- End Page Title -->
+
+		<section class="section dashboard">
+			<div class="row" style="min-height: 500px;">
+
+				<!-- Left side columns -->
+				<div class="col-lg-12">
+					<div class="row">
+						<!-- Reports -->
+						<div class="col-12">
+							<div class="card">
+
+
+								<div class="card-body">
+									<h5 class="card-title">
+										Cart<span>/all</span>
+									</h5>
+
+
+									<table class="table datatable datatable-table table-hover" id="cart">
+										<thead>
+										<th>Id</th>
+								       <th>Cart</th>
+								       <th>Action</th>
+										</thead>
+
+										<tbody>
+											<c:forEach items="${cartList}" var="u">
+												<tr>
+												    <td>${u.cartId}</td>
+													<td>${u.quantity}</td>
+							             			<td><a href="#">Edit</a> |<a href="deletecart?cartId=${u.cartId}">Delete</a>|
+													 <a href="viewcart?cartId=${u.cartId}">View</a>
+													 </td>
+												</tr>
+											</c:forEach>
+										</tbody>
+
+									</table>
+
+
+
+								</div>
+
+							</div>
+						</div>
+						<!-- End Reports -->
+
+					</div>
+				</div>
+				<!-- End Left side columns -->
+
+				<!-- Right side columns -->
+				<!-- End Right side columns -->
+
+			</div>
+		</section>
+
+	</main>
+	<!-- main content end  -->
+
+
+	<jsp:include page="AdminFooter.jsp"></jsp:include>
+
+	<jsp:include page="AdminJs.jsp"></jsp:include>
+	
+	
+
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.bootstrap5.min.js"></script>
+
+	<script type="text/javascript">
+
+	$( document ).ready(function() {
+		let table = new DataTable('#cart');
+	});
+	</script>
+
 </body>
 </html>

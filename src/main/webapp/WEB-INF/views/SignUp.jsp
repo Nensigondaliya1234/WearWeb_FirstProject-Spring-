@@ -61,7 +61,7 @@
                     <p class="text-center small">Enter your personal details to create account</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" action="saveuser" mathod="post" novalidate>
+                  <form class="row g-3 needs-validation" action="saveuser" method="post" >
                     <div class="col-12">
                       <label for="firstName" class="form-label">First Name</label>
                       <input type="text" name="firstName" class="form-control" id="yourName" required>
