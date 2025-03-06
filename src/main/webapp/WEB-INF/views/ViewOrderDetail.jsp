@@ -16,10 +16,6 @@
         <table class="table table-bordered">
             <tbody>
                 <tr>
-                    <th scope="row">OrderDetail ID</th>
-                    <td>${orderdetail.orderDetailId }</td>
-                </tr>
-                <tr>
                     <th scope="row">Quantity</th>
                     <td>${orderdetail.quantity }</td>
                 </tr>

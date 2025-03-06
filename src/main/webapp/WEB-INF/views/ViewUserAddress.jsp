@@ -13,7 +13,6 @@
     <h2 class="text-primary mb-4">View User Address</h2>
 
     <div class="card shadow-sm p-4">
-        <p><strong>User Address ID:</strong> ${useraddress.userAddressId }</p>
         <p><strong>Title:</strong> ${useraddress.title }</p>
         <p><strong>Unit Name:</strong> ${useraddress.unitName }</p>
         <p><strong>Street:</strong> ${useraddress.street }</p>

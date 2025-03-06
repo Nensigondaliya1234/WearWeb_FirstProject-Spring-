@@ -16,7 +16,6 @@
             <h2 class="mb-0">View Reviews</h2>
         </div>
         <div class="card-body">
-            <p><strong>Reviews ID:</strong> ${reviews.reviewsId }</p>
             <p><strong>Rating:</strong> ${reviews.rating }</p>
             <p><strong>Review Text:</strong> ${reviews.reviewText }</p>
         </div>

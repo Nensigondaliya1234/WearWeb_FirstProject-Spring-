@@ -2,9 +2,7 @@ package com.grownited.controller;
 
 import java.sql.Date;
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,8 +40,8 @@ public class OrdersController {
 	
 	@GetMapping("listorder")
 	public String listorder(Model model) {
-		List<OrdersEntity> ordersList = repositoryOrder.findAll();
-		model.addAttribute("ordersList", ordersList);
+		//List<OrdersDto> ordersList = repositoryOrder.getAll();
+		model.addAttribute("ordersList", repositoryOrder.getAll());
 	return "ListOrders";
 	}
 	

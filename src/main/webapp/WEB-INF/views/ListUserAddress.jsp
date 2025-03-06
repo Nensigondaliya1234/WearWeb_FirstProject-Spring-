@@ -54,24 +54,28 @@
 
 									<table class="table datatable datatable-table table-hover" id="useraddress">
 										<thead>
-										  <th>ID</th>
                                           <th>Title</th>
                                           <th>Unit Name</th>
                                           <th>Street</th>
+                                          <th>AddressDetail</th>
                                           <th>Landmark</th>
                                           <th>Zipcode</th>
+                                          <th>StateName</th>
+                                          <th>CityName</th>
                                           <th>Actions</th>
 										</thead>
 
 										<tbody>
 											<c:forEach items="${useraddressList}" var="m">
 												<tr>
-												    <td>${m.userAddressId}</td>
                                                     <td>${m.title}</td>
                                                     <td>${m.unitName}</td>
                                                     <td>${m.street}</td>
+                                                    <td>${m.addressDetail}</td>
                                                     <td>${m.landMark}</td>
                                                     <td>${m.zipcode}</td>
+                                                    <td>${m.statename}</td>
+                                                    <td>${m.cityname}</td>
                                                     <td>
                                                       <a href="viewuseraddress?userAddressId=${m.userAddressId}">View</a>
                                                       <a href="deleteuseraddress?userAddressId=${m.userAddressId}">Delete</a>

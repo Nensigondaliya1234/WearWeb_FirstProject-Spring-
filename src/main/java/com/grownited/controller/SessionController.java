@@ -28,7 +28,6 @@ public class SessionController {
 	
 	@Autowired
 	 SessionRepository repouserEntity;
-
 	
 	@GetMapping(value = {"/","signup"})
 	public String signup() {
@@ -65,29 +64,37 @@ public class SessionController {
 		return "ForgetPassword";
 			
 	}
-	@GetMapping("changepassword")
-		public String changepassword() {
-			//
-		return "ChangePassword";
-			
-	}
+	
 	@PostMapping("sendOtp")
-	public String sendOtp(UserEntity userEntity) {
-		System.out.println(userEntity.getEmail());
+	public String sendOtp(String email, Model model) {
+		// email valid
+				Optional<UserEntity> op = repouserEntity.findByEmail(email);
+				if (op.isEmpty()) {
+					// email invalid
+					model.addAttribute("error", "Email not found");
+					return "ForgetPassword";
+				} else {
+					// email valid
+					// send mail otp
+					// opt generate
+					// send mail otp
+					String otp = "";
+					otp = (int) (Math.random() * 1000000) + "";// 0.25875621458541
+					
+					UserEntity user = op.get();
+					user.setOtp(otp);
+					repouserEntity.save(user);// update otp for user
+					serviceMail.sendOtpForForgetPassword(email, user.getFirstName(), otp);
+					return "ChangePassword";
 
-		
-	    return "ChangePassword";
-	}
+				}
+		}
 	@PostMapping("resetPassword")
 	public String resetPassword(UserEntity userEntity) {
 		System.out.println(userEntity.getPassword());
 		return "ChangePassword";
 	}
-	@PostMapping("updatepassword")
-	public String updatepassword(UserEntity userEntity) {
-		System.out.println(userEntity.getPassword());
-		return "Login";
-	}
+	
 	@GetMapping("home")
 	public String home() {
 		//
@@ -118,7 +125,9 @@ public class SessionController {
 			boolean ans = encoder.matches(password, dbUser.getPassword());
 
 			if (ans==true) {
-				session.setAttribute("user", dbUser); // session -> user set
+				session.setAttribute("user", dbUser);// session -> user set
+	            session.setMaxInactiveInterval(30 * 60); // 30 minutes in seconds
+
 				if (dbUser.getRole().equals("ADMIN")) {
 
 					return "redirect:/admindashboard";
@@ -169,6 +178,31 @@ public class SessionController {
 		return "redirect:/listuser";
 	}
 	
+	@PostMapping("updatepassword")
+	public String updatePassword(String email, String password, String otp, Model model) {
+		Optional<UserEntity> op = repouserEntity.findByEmail(email);
+		if (op.isEmpty()) {
+			model.addAttribute("error", "Invalid Data");
+			System.out.println(password);
+			return "ChangePassword";
+		} else {
+			UserEntity user = op.get();
+			if (user.getOtp().equals(otp)) {
+				String encPwd = encoder.encode(password);
+				user.setPassword(encPwd);
+				user.setOtp("");
+				repouserEntity.save(user);// update
+				System.out.println(password);
+			} else {
+
+				model.addAttribute("error", "Invalid Data");
+				return "ChangePassword";
+			}
+		}
+		model.addAttribute("msg","Password updated");
+		return "Login";
+	}
+
 }
 	
 

@@ -18,10 +18,6 @@
         <div class="card-body">
             <table class="table table-bordered">
                 <tr>
-                    <th>SubCategory ID</th>
-                    <td>${subcategory.subCategoryId}</td>
-                </tr>
-                <tr>
                     <th>SubCategory Name</th>
                     <td>${subcategory.subCategoryname}</td>
                 </tr>

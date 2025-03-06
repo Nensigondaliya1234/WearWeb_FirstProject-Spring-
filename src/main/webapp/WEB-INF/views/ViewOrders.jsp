@@ -12,8 +12,6 @@
 
     <div class="card shadow-lg p-4">
         <h2 class="text-primary mb-4">View Orders</h2>
-
-        <p><strong>Orders:</strong> ${order.orderId }</p>
         <p><strong>Total Amount:</strong> ${order.totalAmount }</p>
         <p><strong>Status:</strong> ${order.status }</p>
 

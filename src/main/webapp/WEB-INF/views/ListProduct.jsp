@@ -54,7 +54,6 @@
 
 									<table class="table datatable datatable-table table-hover" id="product">
 										<thead>
-										  <th>ID</th>
                                           <th>Product Name</th>
                                           <th>Base Price</th>
                                           <th>Offer Percentage</th>
@@ -66,7 +65,6 @@
 										<tbody>
 											<c:forEach items="${productList}" var="p">
 												<tr>
-												    <td>${p.productId}</td>
                                                     <td>${p.productName}</td>
                                                     <td>${p.basePrice}</td>
                                                     <td>${p.offerePercentage}%</td>

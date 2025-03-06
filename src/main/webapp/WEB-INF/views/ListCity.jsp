@@ -54,16 +54,16 @@
 
 									<table class="table datatable datatable-table table-hover" id="city">
 										<thead>
-										<th>Id</th>
-								       <th>CityName</th>
-								       <th>Action</th>
+										<th>CityName</th>
+										<th>StateName</th>
+								        <th>Action</th>
 										</thead>
 
 										<tbody>
 											<c:forEach items="${cityList}" var="u">
 												<tr>
-												    <td>${u.cityId}</td>
-													<td>${u.cityname}</td>
+												    <td>${u.cityname}</td>
+													<td>${u.statename}</td>
 							             			<td><a href="#">Edit</a> |<a href="deletecity?cityId=${u.cityId}">Delete</a>|
 													 <a href="viewcity?cityId=${u.cityId}">View</a>
 													 </td>

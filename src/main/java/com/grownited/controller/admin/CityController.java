@@ -40,8 +40,8 @@ List<StateEntity> allState = repositoryState.findAll();// all state
 	
 	@GetMapping("listcity")
 	public String listcity(Model model) {
-		List<CityEntity> cityList = repositoryCity.findAll();
-		model.addAttribute("cityList", cityList);
+		//List<CityDto> cityList = repositoryCity.getAll();
+		model.addAttribute("cityList", repositoryCity.getAll());
 	return "ListCity";
 	}
 	

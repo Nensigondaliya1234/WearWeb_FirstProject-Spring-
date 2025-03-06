@@ -54,16 +54,18 @@
 
 									<table class="table datatable datatable-table table-hover" id="cart">
 										<thead>
-										<th>Id</th>
-								       <th>Cart</th>
+										
+								       <th>Quantity</th>
+								       <th>Product Name</th>
 								       <th>Action</th>
 										</thead>
 
 										<tbody>
 											<c:forEach items="${cartList}" var="u">
 												<tr>
-												    <td>${u.cartId}</td>
+												    
 													<td>${u.quantity}</td>
+													<td>${u.productName}</td>
 							             			<td><a href="#">Edit</a> |<a href="deletecart?cartId=${u.cartId}">Delete</a>|
 													 <a href="viewcart?cartId=${u.cartId}">View</a>
 													 </td>

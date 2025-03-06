@@ -54,14 +54,16 @@
 
 									<table class="table datatable datatable-table table-hover" id="wishlist">
 										<thead>
-										  <th>Wishlist ID</th>
+										  <th>createdAt</th>
+										  <th>ProductName</th>
 										  <th>Action</th>
 										</thead>
 
 										<tbody>
 											<c:forEach items="${wishlistList}" var="m">
 												<tr>
-												    <td>${m.wishlistId}</td>
+												    <td>${m.createdAt}</td>
+												    <td>${m.productName}</td>
                                                     <td>
                                                       <a href="viewwishlist?wishlistId=${m.wishlistId}">View</a>
                                                       <a href="deletewishlist?wishlistId=${m.wishlistId}">Delete</a>

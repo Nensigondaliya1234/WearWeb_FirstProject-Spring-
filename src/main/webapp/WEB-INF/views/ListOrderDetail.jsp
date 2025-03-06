@@ -54,20 +54,22 @@
 
 									<table class="table datatable datatable-table table-hover" id="orderDetail">
 										<thead>
-										  <th>ID</th>
+										  <th>Status</th>
                                           <th>Quantity</th>
                                           <th>Price</th>
-                                          <th>Status</th>
+                                          <th>productName</th>
+                                          <th>TotalAmount</th>
                                           <th>Actions</th>
 										</thead>
 
 										<tbody>
 											<c:forEach items="${orderdetailList}" var="o">
 												<tr>
-												    <td>${o.orderDetailId}</td>
+												    <td>${o.status}</td>
                                                     <td>${o.quantity}</td>
                                                     <td>${o.price}</td>
-                                                    <td>${o.status}</td>
+                                                    <td>${o.productName}</td>
+                                                    <td>${o.totalAmount}</td>
 							             			<td><a href="#">Edit</a> |<a href="deleteorderdetail?orderDetailId=${o.orderDetailId}">Delete</a>|
 													 <a href="vieworderdetail?orderDetailId=${o.orderDetailId}">View</a>
 													 </td>

@@ -17,11 +17,13 @@ public class UserEntity {
 	private String lastName;
 	private String email;
 	private String password;
+	private String confirmPassword;
 	private Long contactNum;
 	private String gender;
 	private String role;// member,seller,admin
 	private Date createdAt;
 	private String status;
+	private String otp;
 	public Integer getUserId() {
 		return userId;
 	}
@@ -54,6 +56,12 @@ public class UserEntity {
 	}
 	
 	
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
+	}
 	public Long getContactNum() {
 		return contactNum;
 	}
@@ -85,6 +93,13 @@ public class UserEntity {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	public String getOtp() {
+		return otp;
+	}
+	public void setOtp(String otp) {
+		this.otp = otp;
+	}
+	
 	
 	
 }

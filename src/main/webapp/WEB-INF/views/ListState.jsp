@@ -54,7 +54,6 @@
 
 									<table class="table datatable datatable-table table-hover" id="state">
 										<thead>
-										  <th>ID</th>
 					                      <th>State Name</th>
 				                          <th>Actions</th>
 										</thead>
@@ -62,7 +61,6 @@
 										<tbody>
 											<c:forEach items="${stateList}" var="m">
 												<tr>
-												    <td>${m.stateId}</td>
 						                            <td>${m.statename}</td> 
 							             			<td><a href="#">Edit</a> |<a href="deletestate?stateId=${m.stateId}">Delete</a>|
 													 <a href="viewstate?stateId=${m.stateId}">View</a>

@@ -49,8 +49,8 @@ public class WishlistController {
 	
 	@GetMapping("listwishlist")
 	public String listwishlist(Model model) {
-		List<WishlistEntity> wishlistList = repositoryWishlist.findAll();
-		model.addAttribute("wishlistList", wishlistList);
+		//List<WishlistDto> wishlistList = repositoryWishlist.getAll();
+		model.addAttribute("wishlistList", repositoryWishlist.getAll());
 	return "ListWishlist";
 	}
 	

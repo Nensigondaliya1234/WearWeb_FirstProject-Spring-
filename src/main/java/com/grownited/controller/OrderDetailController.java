@@ -47,8 +47,8 @@ public class OrderDetailController {
 	
 	@GetMapping("listorderdetail")
 	public String listorderdetail(Model model) {
-		List<OrderDetailEntity> orderdetailList = repositoryOrderdetail.findAll();
-		model.addAttribute("orderdetailList", orderdetailList);
+		//List<OrderDetailDto> orderdetailList = repositoryOrderdetail.getAll();
+		model.addAttribute("orderdetailList", repositoryOrderdetail.getAll());
 	return "ListOrderDetail";
 	}
 	

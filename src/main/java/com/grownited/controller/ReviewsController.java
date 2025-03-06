@@ -49,8 +49,8 @@ List<ProductEntity> allProduct = repositoryProduct.findAll();// all state
 	
 	@GetMapping("listreviews")
 	public String listreviews(Model model) {
-		List<ReviewsEntity> reviewsList = repositoryreviews.findAll();
-		model.addAttribute("reviewsList", reviewsList);
+		//List<ReviewsDto> reviewsList = repositoryreviews.getAll();
+		model.addAttribute("reviewsList", repositoryreviews.getAll());
 	return "ListReviews";
 	}
 	

@@ -54,7 +54,6 @@
 
 									<table class="table datatable datatable-table table-hover" id="area">
 										<thead>
-										<th>Id</th>
 								        <th>AreaName</th>
 								        <th>Action</th>
 										</thead>

@@ -54,8 +54,7 @@
 
 									<table class="table datatable datatable-table table-hover" id="users">
 										<thead>
-										  <th>ID</th>
-					                      <th>First Name</th>
+										  <th>First Name</th>
 					                      <th>Last Name</th>
 					                      <th>Email</th>
 					                      <th>Contact Number</th>
@@ -66,7 +65,6 @@
 										<tbody>
 											<c:forEach items="${userList}" var="m">
 												<tr>
-												    <td>${m.userId}</td>
                                                     <td>${m.firstName}</td>
                                                     <td>${m.lastName}</td>
                                                     <td>${m.email}</td>

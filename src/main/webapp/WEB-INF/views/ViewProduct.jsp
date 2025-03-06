@@ -15,7 +15,6 @@
         <div class="card shadow p-4">
             <div class="row">
                 <div class="col-md-6">
-                    <p><strong>Product ID:</strong> ${product.productId }</p>
                     <p><strong>Product Name:</strong> ${product.productName }</p>
                     <p><strong>Base Price:</strong> ${product.basePrice }</p>
                     <p><strong>Offer Percentage:</strong> ${product.offerePercentage }%</p>

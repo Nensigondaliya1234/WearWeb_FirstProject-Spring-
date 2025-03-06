@@ -54,18 +54,18 @@
 
 									<table class="table datatable datatable-table table-hover" id="reviews">
 										<thead>
-										  <th>ID</th>
                                           <th>Rating</th>
                                           <th>Review Text</th>
+                                          <th>ProductName</th>
                                           <th>Actions</th>
 										</thead>
 
 										<tbody>
 											<c:forEach items="${reviewsList}" var="m">
 												<tr>
-												    <td>${m.reviewsId}</td>
                                                     <td>${m.rating}</td>
                                                     <td>${m.reviewText}</td>
+                                                    <td>${m.productName}</td>
 							             			<td><a href="#">Edit</a> |<a href="deletereviews?reviewsId=${m.reviewsId}">Delete</a>|
 													 <a href="viewreviews?reviewsId=${m.reviewsId}">View</a>
 													 </td>

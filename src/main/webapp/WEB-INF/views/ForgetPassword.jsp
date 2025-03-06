@@ -8,18 +8,18 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            background-color: #f8f9fa;
         }
 
         .forgot-container {
             background: #fff;
             border-radius: 10px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             padding: 30px;
             width: 100%;
             max-width: 400px;
@@ -27,7 +27,7 @@
         }
 
         .forgot-container h2 {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             color: #333;
             font-weight: bold;
         }
@@ -35,24 +35,22 @@
         .forgot-container p {
             color: #666;
             font-size: 14px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
-        .forgot-container input[type="email"] {
+        .forgot-container input {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
-            box-sizing: border-box;
             font-size: 14px;
         }
 
         .forgot-container button {
             width: 100%;
             padding: 10px;
-            background: #ff758c;
-            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            background: #007bff;
             color: white;
             border: none;
             border-radius: 5px;
@@ -62,16 +60,17 @@
         }
 
         .forgot-container button:hover {
-            background: linear-gradient(135deg, #e66782, #e6739c);
+            background: #0056b3;
         }
 
         .login-link {
-            margin-top: 20px;
+            margin-top: 15px;
             color: #888;
+            font-size: 14px;
         }
 
         .login-link a {
-            color: #ff758c;
+            color: #007bff;
             text-decoration: none;
             font-weight: bold;
         }
@@ -86,7 +85,7 @@
         <form action="sendOtp" method="post">
             <h2>Forgot Password</h2>
             <p>Enter your email to receive a password reset link.</p>
-            <input type="email" name="email" placeholder="Email" required>
+            <input type="email" name="email" placeholder="Enter Email" required>
             <button type="submit">Send Reset Link</button>
             <p class="login-link">Remembered your password? <a href="login">Login</a></p>
         </form>

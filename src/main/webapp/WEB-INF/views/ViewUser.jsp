@@ -17,10 +17,6 @@
         <table class="table table-bordered">
             <tbody>
                 <tr>
-                    <th>User ID</th>
-                    <td>${user.userId}</td>
-                </tr>
-                <tr>
                     <th>First Name</th>
                     <td>${user.firstName}</td>
                 </tr>

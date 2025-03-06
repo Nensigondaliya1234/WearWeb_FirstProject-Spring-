@@ -54,15 +54,13 @@
 
 									<table class="table datatable datatable-table table-hover" id="category">
 										<thead>
-										<th>Id</th>
-								       <th>CategoryName</th>
+										<th>CategoryName</th>
 								       <th>Action</th>
 										</thead>
 
 										<tbody>
 											<c:forEach items="${categoryList}" var="u">
 												<tr>
-												    <td>${u.categoryId}</td>
 													<td>${u.categoryname}</td>
 							             			<td><a href="#">Edit</a> |<a href="deletecategory?categoryId=${u.categoryId}">Delete</a>|
 													 <a href="viewcategory?categoryId=${u.categoryId}">View</a>

@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import com.grownited.entity.CategoryEntity;
 import com.grownited.entity.SubCategoryEntity;
 import com.grownited.repository.CategoryRepository;
@@ -41,8 +40,8 @@ public class SubCategoryController {
 	
 	@GetMapping("listsubcategory")
 	public String listsubcategory(Model model) {
-		List<SubCategoryEntity> subcategoryList = repositorySubCategory.findAll();
-		model.addAttribute("subcategoryList", subcategoryList);
+		//List<SubCategoryDto> subcategoryList = repositorySubCategory.getAll();
+		model.addAttribute("subcategoryList", repositorySubCategory.getAll());
 	return "ListSubCategory";
 	}
 	

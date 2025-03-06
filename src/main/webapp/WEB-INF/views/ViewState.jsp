@@ -13,7 +13,6 @@
     <div class="card shadow-lg p-4">
         <h2 class="text-primary text-center">View State</h2>
         <hr>
-        <p><strong>State ID:</strong> ${state.stateId }</p>
         <p><strong>State Name:</strong> ${state.statename }</p>
     </div>
 
