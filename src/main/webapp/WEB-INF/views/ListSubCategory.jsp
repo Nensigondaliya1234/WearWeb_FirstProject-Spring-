@@ -62,10 +62,10 @@
 										<tbody>
 											<c:forEach items="${subcategoryList}" var="m">
 												<tr>
-                                                    <td>${m.subCategoryname}</td>
-                                                    <td>${m.categoryname}</td>
-                                                    <td><a href="#">Edit</a> |<a href="deletesubcategory?subCategoryId=${m.subCategoryId}">Delete</a>|
-													 <a href="viewsubcategory?subCategoryId=${m.subCategoryId}">View</a>
+                                                    <td>${m[2]}</td>
+                                                    <td>${m[3]}</td>
+                                                    <td><a href="#">Edit</a> |<a href="deletesubcategory?subCategoryId=${m[0]}">Delete</a>|
+													 <a href="viewsubcategory?subCategoryId=${m[0]}">View</a>
 													 </td>
 												</tr>
 											</c:forEach>

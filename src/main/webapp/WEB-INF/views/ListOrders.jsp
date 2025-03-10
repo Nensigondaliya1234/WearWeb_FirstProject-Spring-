@@ -63,11 +63,11 @@
 										<tbody>
 											<c:forEach items="${ordersList}" var="o">
 												<tr>
-												    <td>${o.status}</td>
-                                                    <td>${o.totalAmount}</td>
-                                                    <td>${o.firstName}</td>
-							             			<td><a href="#">Edit</a> |<a href="deleteorders?orderId=${o.orderId}">Delete</a>|
-													 <a href="vieworders?orderId=${o.orderId}">View</a>
+												    <td>${o[2]}</td>
+                                                    <td>${o[3]}</td>
+                                                    <td>${o[5]}</td>
+							             			<td><a href="#">Edit</a> |<a href="deleteorders?orderId=${o[0]}">Delete</a>|
+													 <a href="vieworders?orderId=${o[0]}">View</a>
 													 </td>
 												</tr>
 											</c:forEach>

@@ -63,11 +63,11 @@
 										<tbody>
 											<c:forEach items="${reviewsList}" var="m">
 												<tr>
-                                                    <td>${m.rating}</td>
-                                                    <td>${m.reviewText}</td>
-                                                    <td>${m.productName}</td>
-							             			<td><a href="#">Edit</a> |<a href="deletereviews?reviewsId=${m.reviewsId}">Delete</a>|
-													 <a href="viewreviews?reviewsId=${m.reviewsId}">View</a>
+                                                    <td>${m[3]}</td>
+                                                    <td>${m[4]}</td>
+                                                    <td>${m[6]}</td>
+							             			<td><a href="#">Edit</a> |<a href="deletereviews?reviewsId=${m[0]}">Delete</a>|
+													 <a href="viewreviews?reviewsId=${m[0]}">View</a>
 													 </td>
 												</tr>
 											</c:forEach>

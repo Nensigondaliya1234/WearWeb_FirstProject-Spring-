@@ -62,10 +62,10 @@
 										<tbody>
 											<c:forEach items="${cityList}" var="u">
 												<tr>
-												    <td>${u.cityname}</td>
-													<td>${u.statename}</td>
-							             			<td><a href="#">Edit</a> |<a href="deletecity?cityId=${u.cityId}">Delete</a>|
-													 <a href="viewcity?cityId=${u.cityId}">View</a>
+												    <td>${u[1]}</td>
+													<td>${u[3]}</td>
+							             			<td><a href="#">Edit</a> |<a href="deletecity?cityId=${u[0]}">Delete</a>|
+													 <a href="viewcity?cityId=${u[0]}">View</a>
 													 </td>
 												</tr>
 											</c:forEach>

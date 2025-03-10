@@ -45,8 +45,8 @@ List<ProductEntity> allProduct = repositoryProduct.findAll();// all state
 	
 	@GetMapping("listcart")
 	public String listcart(Model model) {
-		//List<CartDto> cartList = repositoryCart.getAll();
-		model.addAttribute("cartList", repositoryCart.getAll());
+		List<Object[]> cartList = repositoryCart.getAll();
+		model.addAttribute("cartList",cartList);
 	return "ListCart";
 	}
 	

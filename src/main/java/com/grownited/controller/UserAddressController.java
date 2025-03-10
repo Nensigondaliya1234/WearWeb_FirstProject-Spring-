@@ -55,8 +55,8 @@ public class UserAddressController {
 	
 	@GetMapping("listuseraddress")
 	public String listuseraddress(Model model) {
-		//List<UserAddressDto> useraddressList = repositoryUserAddress.getAll();
-		model.addAttribute("useraddressList", repositoryUserAddress.getAll());
+		List<Object[]> useraddressList = repositoryUserAddress.getAll();
+		model.addAttribute("useraddressList",useraddressList);
 	return "ListUserAddress";
 	}
 	

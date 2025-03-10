@@ -62,12 +62,12 @@
 										<tbody>
 											<c:forEach items="${wishlistList}" var="m">
 												<tr>
-												    <td>${m.createdAt}</td>
-												    <td>${m.productName}</td>
+												    <td>${m[1]}</td>
+												    <td>${m[4]}</td>
                                                     <td>
-                                                      <a href="viewwishlist?wishlistId=${m.wishlistId}">View</a>
-                                                      <a href="deletewishlist?wishlistId=${m.wishlistId}">Delete</a>
-                                                      <a href="editwishlist?wishlistId=${m.wishlistId}">Edit</a>
+                                                      <a href="viewwishlist?wishlistId=${m[0]}">View</a>
+                                                      <a href="deletewishlist?wishlistId=${m[0]}">Delete</a>
+                                                      <a href="editwishlist?wishlistId=${m[0]}">Edit</a>
                                                    </td>
 
 

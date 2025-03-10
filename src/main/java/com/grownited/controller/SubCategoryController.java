@@ -40,8 +40,8 @@ public class SubCategoryController {
 	
 	@GetMapping("listsubcategory")
 	public String listsubcategory(Model model) {
-		//List<SubCategoryDto> subcategoryList = repositorySubCategory.getAll();
-		model.addAttribute("subcategoryList", repositorySubCategory.getAll());
+		List<Object[]> subcategoryList = repositorySubCategory.getAll();
+		model.addAttribute("subcategoryList",subcategoryList);
 	return "ListSubCategory";
 	}
 	

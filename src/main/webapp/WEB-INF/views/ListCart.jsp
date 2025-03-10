@@ -64,10 +64,10 @@
 											<c:forEach items="${cartList}" var="u">
 												<tr>
 												    
-													<td>${u.quantity}</td>
-													<td>${u.productName}</td>
-							             			<td><a href="#">Edit</a> |<a href="deletecart?cartId=${u.cartId}">Delete</a>|
-													 <a href="viewcart?cartId=${u.cartId}">View</a>
+													<td>${u[2]}</td>
+													<td>${u[4]}</td>
+							             			<td><a href="#">Edit</a> |<a href="deletecart?cartId=${u[0]}">Delete</a>|
+													 <a href="viewcart?cartId=${u[0]}">View</a>
 													 </td>
 												</tr>
 											</c:forEach>

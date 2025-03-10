@@ -68,18 +68,18 @@
 										<tbody>
 											<c:forEach items="${useraddressList}" var="m">
 												<tr>
-                                                    <td>${m.title}</td>
-                                                    <td>${m.unitName}</td>
-                                                    <td>${m.street}</td>
-                                                    <td>${m.addressDetail}</td>
-                                                    <td>${m.landMark}</td>
-                                                    <td>${m.zipcode}</td>
-                                                    <td>${m.statename}</td>
-                                                    <td>${m.cityname}</td>
+                                                    <td>${m[7]}</td>
+                                                    <td>${m[8]}</td>
+                                                    <td>${m[6]}</td>
+                                                    <td>${m[1]}</td>
+                                                    <td>${m[4]}</td>
+                                                    <td>${m[10]}</td>
+                                                    <td>${m[12]}</td>
+                                                    <td>${m[11]}</td>
                                                     <td>
-                                                      <a href="viewuseraddress?userAddressId=${m.userAddressId}">View</a>
-                                                      <a href="deleteuseraddress?userAddressId=${m.userAddressId}">Delete</a>
-                                                      <a href="edituseraddress?userAddressId=${m.userAddressId}">Edit</a>
+                                                      <a href="viewuseraddress?userAddressId=${m[0]}">View</a>
+                                                      <a href="deleteuseraddress?userAddressId=${m[0]}">Delete</a>
+                                                      <a href="edituseraddress?userAddressId=${m[0]}">Edit</a>
                                                     </td>
 
 												</tr>
