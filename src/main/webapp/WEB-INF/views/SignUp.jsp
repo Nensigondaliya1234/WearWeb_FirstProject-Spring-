@@ -61,7 +61,7 @@
                     <p class="text-center small">Enter your personal details to create account</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" action="saveuser" method="post" >
+                  <form class="row g-3 needs-validation" action="saveuser" method="post" enctype="multipart/form-data"   >
                     <div class="col-12">
                       <label for="firstName" class="form-label">First Name</label>
                       <input type="text" name="firstName" class="form-control" id="yourName" required>
@@ -108,6 +108,13 @@
               </select>
               <div class="input-group-text"><span class="bi bi-person-badge"></span></div>
             </div>
+            <div class="input-group mb-3">
+							<input type="file" class="form-control" placeholder="Profile"
+								name="profilePic" />
+							<div class="input-group-text">
+								<span class="bi bi-cake"></span>
+							</div>
+						</div>
 
                     <div class="col-12">
                       <div class="form-check">

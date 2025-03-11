@@ -39,7 +39,7 @@ List<ProductEntity> allProduct = repositoryProduct.findAll();// all state
 		Integer userId = user.getUserId(); 
 	    cartEntity.setUserId(userId);
 		repositoryCart.save(cartEntity);
-		return "Cart";
+		return "redirect:/cart";
 	
 	}
 	
