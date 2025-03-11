@@ -62,6 +62,8 @@
                                           <th>Zipcode</th>
                                           <th>StateName</th>
                                           <th>CityName</th>
+                                          <th>FirstName</th>
+                                          <th>LatName</th>
                                           <th>Actions</th>
 										</thead>
 
@@ -76,6 +78,8 @@
                                                     <td>${m[10]}</td>
                                                     <td>${m[12]}</td>
                                                     <td>${m[11]}</td>
+                                                    <td>${m[13]}</td>
+                                                    <td>${m[14]}</td>
                                                     <td>
                                                       <a href="viewuseraddress?userAddressId=${m[0]}">View</a>
                                                       <a href="deleteuseraddress?userAddressId=${m[0]}">Delete</a>

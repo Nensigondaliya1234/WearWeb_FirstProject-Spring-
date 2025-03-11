@@ -56,6 +56,8 @@
 										<thead>
 										  <th>createdAt</th>
 										  <th>ProductName</th>
+										  <th>FirstName</th>
+										  <th>LastName</th>
 										  <th>Action</th>
 										</thead>
 
@@ -64,6 +66,8 @@
 												<tr>
 												    <td>${m[1]}</td>
 												    <td>${m[4]}</td>
+												    <td>${m[5]}</td>
+												    <td>${m[6]}</td>
                                                     <td>
                                                       <a href="viewwishlist?wishlistId=${m[0]}">View</a>
                                                       <a href="deletewishlist?wishlistId=${m[0]}">Delete</a>

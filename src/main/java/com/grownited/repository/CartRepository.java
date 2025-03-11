@@ -9,6 +9,6 @@ import com.grownited.entity.CartEntity;
 
 @Repository
 public interface CartRepository extends JpaRepository<CartEntity, Integer> {
-	@Query(value = "select c.*,p.product_name from product p,cart c where p.product_id = c.cart_id",nativeQuery = true)
+	@Query(value = "select c.*,p.product_name,u.first_name,u.last_name from product p,cart c ,users u where p.product_id = c.product_id and u.user_id = c.user_id",nativeQuery = true)
 	List<Object[]> getAll();
 }

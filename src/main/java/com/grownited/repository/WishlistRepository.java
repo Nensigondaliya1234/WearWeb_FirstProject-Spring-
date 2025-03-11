@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 import com.grownited.entity.WishlistEntity;
 @Repository
 public interface WishlistRepository extends JpaRepository<WishlistEntity, Integer> {
-	@Query(value = "select w.*,p.product_name from product p,wishlist w where w.product_id = p.product_id",nativeQuery = true)
+	@Query(value = "select w.*,p.product_name,u.first_name,u.last_name from product p,wishlist w ,users u where w.product_id = p.product_id and w.user_id = u.user_id",nativeQuery = true)
 	List<Object[]> getAll();
 }

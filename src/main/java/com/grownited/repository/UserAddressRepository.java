@@ -9,6 +9,6 @@ import com.grownited.entity.UserAddressEntity;
 
 @Repository
 public interface UserAddressRepository extends JpaRepository<UserAddressEntity, Integer> {
-	@Query(value = "select u.*,c.cityname,s.statename from useraddress u,city c,state s where u.city_id = c.city_id AND u.state_id = s.state_id",nativeQuery = true)
+	@Query(value = "select us.*,c.cityname,s.statename ,u.first_name,u.last_name from useraddress us,city c,state s, users u where us.city_id = c.city_id AND us.state_id = s.state_id AND us.user_id = u.user_id",nativeQuery = true)
 	List<Object[]> getAll();
 }

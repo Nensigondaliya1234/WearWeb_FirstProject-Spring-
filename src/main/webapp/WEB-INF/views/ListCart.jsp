@@ -57,6 +57,8 @@
 										
 								       <th>Quantity</th>
 								       <th>Product Name</th>
+								       <th>First Name</th>
+								       <th>Last Name</th>
 								       <th>Action</th>
 										</thead>
 
@@ -66,6 +68,8 @@
 												    
 													<td>${u[2]}</td>
 													<td>${u[4]}</td>
+													<td>${u[5]}</td>
+													<td>${u[6]}</td>
 							             			<td><a href="#">Edit</a> |<a href="deletecart?cartId=${u[0]}">Delete</a>|
 													 <a href="viewcart?cartId=${u[0]}">View</a>
 													 </td>

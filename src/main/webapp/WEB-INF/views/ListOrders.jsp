@@ -56,7 +56,8 @@
 										<thead>
 										  <th>Status</th>
                                           <th>Total Amount</th>
-                                          <th>firstName</th>
+                                          <th>FirstName</th>
+                                          <th>LastName</th>
                                           <th>Actions</th>
 										</thead>
 
@@ -66,6 +67,7 @@
 												    <td>${o[2]}</td>
                                                     <td>${o[3]}</td>
                                                     <td>${o[5]}</td>
+                                                    <td>${o[6]}</td>
 							             			<td><a href="#">Edit</a> |<a href="deleteorders?orderId=${o[0]}">Delete</a>|
 													 <a href="vieworders?orderId=${o[0]}">View</a>
 													 </td>

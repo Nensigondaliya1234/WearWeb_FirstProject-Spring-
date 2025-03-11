@@ -9,6 +9,6 @@ import com.grownited.entity.OrdersEntity;
 
 @Repository
 public interface OrderRepository extends JpaRepository<OrdersEntity, Integer> {
-	@Query(value = "select o.*,u.first_name from users u,orders o where o.user_id = u.user_id",nativeQuery = true)
+	@Query(value = "select o.*,u.first_name,u.last_name from users u,orders o where o.user_id = u.user_id",nativeQuery = true)
 	List<Object[]> getAll();
 }
