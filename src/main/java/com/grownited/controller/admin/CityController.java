@@ -1,8 +1,6 @@
 package com.grownited.controller.admin;
 
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -47,18 +45,8 @@ List<StateEntity> allState = repositoryState.findAll();// all state
 	
 	@GetMapping("viewcity")
 	public String viewcity(Integer cityId, Model model) {
-		// ?
-		System.out.println("id ===> " + cityId);
-		Optional<CityEntity> op = repositoryCity.findById(cityId);
-		if (op.isEmpty()) {
-			// not found
-		} else {
-			// data found
-			CityEntity city = op.get();
-			// send data to jsp ->
-			model.addAttribute("city", city);
-
-		}
+		List<Object[]> op = repositoryCity.getByCityId(cityId);
+		model.addAttribute("city", op);
 
 		return "ViewCity";
 	}

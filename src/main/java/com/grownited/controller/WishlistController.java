@@ -3,8 +3,6 @@ package com.grownited.controller;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -56,18 +54,8 @@ public class WishlistController {
 	
 	@GetMapping("viewwishlist")
 	public String viewwishlist(Integer wishlistId, Model model) {
-		// ?
-		System.out.println("id ===> " + wishlistId);
-		Optional<WishlistEntity> op = repositoryWishlist.findById(wishlistId);
-		if (op.isEmpty()) {
-			// not found
-		} else {
-			// data found
-			WishlistEntity wishlistList = op.get();
-			// send data to jsp ->
-			model.addAttribute("wishlistList", wishlistList);
-
-		}
+		List<Object[]> op = repositoryWishlist.getByWishlistId(wishlistId);
+		model.addAttribute("wishlist", op);
 
 		return "ViewWishlist";
 	}

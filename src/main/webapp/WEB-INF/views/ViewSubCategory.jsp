@@ -16,12 +16,21 @@
             <h2 class="mb-0">View SubCategory</h2>
         </div>
         <div class="card-body">
-            <table class="table table-bordered">
-                <tr>
-                    <th>SubCategory Name</th>
-                    <td>${subcategory.subCategoryname}</td>
-                </tr>
-            </table>
+            <table class="table datatable datatable-table table-hover" id="subCategory">
+										<thead>
+					                      <th>SubCategory Name</th>
+					                      <th>CategoryName</th>
+										</thead>
+
+										<tbody>
+												<tr>
+                                                    <td>${subCategory[0][2]}</td>
+                                                    <td>${subCategory[0][3]}</td>
+                                                    
+												</tr>
+										</tbody>
+
+									</table>
         </div>
     </div>
 </div>

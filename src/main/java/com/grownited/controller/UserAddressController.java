@@ -1,8 +1,6 @@
 package com.grownited.controller;
 
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -62,18 +60,8 @@ public class UserAddressController {
 	
 	@GetMapping("viewuseraddress")
 	public String viewuseraddress(Integer userAddressId, Model model) {
-		// ?
-		System.out.println("id ===> " + userAddressId);
-		Optional<UserAddressEntity> op = repositoryUserAddress.findById(userAddressId);
-		if (op.isEmpty()) {
-			// not found
-		} else {
-			// data found
-			UserAddressEntity useraddress = op.get();
-			// send data to jsp ->
-			model.addAttribute("useraddress", useraddress);
-
-		}
+		List<Object[]> op = repositoryUserAddress.getByUserAddressId(userAddressId);
+		model.addAttribute("userAddress", op);
 
 		return "ViewUserAddress";
 	}

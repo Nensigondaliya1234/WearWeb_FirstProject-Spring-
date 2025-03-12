@@ -16,8 +16,32 @@
             <h2 class="mb-0">View Reviews</h2>
         </div>
         <div class="card-body">
-            <p><strong>Rating:</strong> ${reviews.rating }</p>
-            <p><strong>Review Text:</strong> ${reviews.reviewText }</p>
+            <table class="table datatable datatable-table table-hover" id="reviews">
+										<thead>
+                                          <th>Rating</th>
+                                          <th>Review Text</th>
+                                          <th>ProductName</th>
+                                          <th>FirstName</th>
+                                          <th>LastName</th>
+                                          
+										</thead>
+
+										<tbody>
+											
+												<tr>
+                                                    <td>${reviews[0][3]}</td>
+                                                    <td>${reviews[0][4]}</td>
+                                                    <td>${reviews[0][6]}</td>
+                                                    <td>${reviews[0][7]}</td>
+                                                    <td>${reviews[0][8]}</td>
+							             			
+												</tr>
+											
+										</tbody>
+
+									</table>
+
+
         </div>
     </div>
 </div>

@@ -13,11 +13,39 @@
     <h2 class="text-primary mb-4">View User Address</h2>
 
     <div class="card shadow-sm p-4">
-        <p><strong>Title:</strong> ${useraddress.title }</p>
-        <p><strong>Unit Name:</strong> ${useraddress.unitName }</p>
-        <p><strong>Street:</strong> ${useraddress.street }</p>
-        <p><strong>Landmark:</strong> ${useraddress.landMark }</p>
-        <p><strong>Zipcode:</strong> ${useraddress.zipcode }</p>
+        <table class="table datatable datatable-table table-hover" id="useraddress">
+										<thead>
+                                          <th>Title</th>
+                                          <th>Unit Name</th>
+                                          <th>Street</th>
+                                          <th>AddressDetail</th>
+                                          <th>Landmark</th>
+                                          <th>Zipcode</th>
+                                          <th>StateName</th>
+                                          <th>CityName</th>
+                                          <th>FirstName</th>
+                                          <th>LatName</th>
+                                          </thead>
+
+										<tbody>
+												<tr>
+                                                    <td>${userAddress[0][7]}</td>
+                                                    <td>${userAddress[0][8]}</td>
+                                                    <td>${userAddress[0][6]}</td>
+                                                    <td>${userAddress[0][1]}</td>
+                                                    <td>${userAddress[0][4]}</td>
+                                                    <td>${userAddress[0][10]}</td>
+                                                    <td>${userAddress[0][12]}</td>
+                                                    <td>${userAddress[0][11]}</td>
+                                                    <td>${userAddress[0][13]}</td>
+                                                    <td>${userAddress[0][14]}</td>
+                                                    
+												</tr>
+										</tbody>
+
+									</table>
+
+
     </div>
 
     <!-- Bootstrap JS (optional for interactive components) -->

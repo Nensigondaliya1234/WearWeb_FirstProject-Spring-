@@ -11,8 +11,23 @@
 <body class="container mt-5">
 
     <div class="card shadow p-4">
-        <h2 class="text-primary">View City</h2>
-        <p class="fs-4">City: <strong>${city.cityname }</strong></p>
+        <table class="table datatable datatable-table table-hover" id="city">
+										<thead>
+										<th>CityName</th>
+										<th>StateName</th>
+								        
+										</thead>
+
+										<tbody>
+												<tr>
+												    <td>${city[0][1]}</td>
+													<td>${city[0][3]}</td>
+							             			
+												</tr>
+											
+										</tbody>
+
+									</table>
     </div>
 
     <!-- Bootstrap JS (optional) -->

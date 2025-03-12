@@ -1,8 +1,6 @@
 package com.grownited.controller;
 
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -52,18 +50,8 @@ List<ProductEntity> allProduct = repositoryProduct.findAll();// all state
 	
 	@GetMapping("viewcart")
 	public String viewcart(Integer cartId, Model model) {
-		// ?
-		System.out.println("id ===> " + cartId);
-		Optional<CartEntity> op = repositoryCart.findById(cartId);
-		if (op.isEmpty()) {
-			// not found
-		} else {
-			// data found
-			CartEntity cart = op.get();
-			// send data to jsp ->
-			model.addAttribute("cart", cart);
-
-		}
+		List<Object[]> op = repositoryCart.getByCartId(cartId);
+		model.addAttribute("cart", op);
 
 		return "ViewCart";
 	}

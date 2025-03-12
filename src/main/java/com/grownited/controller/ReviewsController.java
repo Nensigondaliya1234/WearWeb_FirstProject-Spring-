@@ -3,8 +3,6 @@ package com.grownited.controller;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -56,18 +54,8 @@ List<ProductEntity> allProduct = repositoryProduct.findAll();// all state
 	
 	@GetMapping("viewreviews")
 	public String viewreviews(Integer reviewsId, Model model) {
-		// ?
-		System.out.println("id ===> " + reviewsId);
-		Optional<ReviewsEntity> op = repositoryreviews.findById(reviewsId);
-		if (op.isEmpty()) {
-			// not found
-		} else {
-			// data found
-			ReviewsEntity reviews = op.get();
-			// send data to jsp ->
-			model.addAttribute("reviews", reviews);
-
-		}
+		List<Object[]> op = repositoryreviews.getByReviewsId(reviewsId);
+		model.addAttribute("reviews", op);
 
 		return "ViewReviews";
 	}

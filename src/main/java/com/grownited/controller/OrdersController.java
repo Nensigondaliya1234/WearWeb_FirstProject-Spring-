@@ -3,7 +3,6 @@ package com.grownited.controller;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -48,18 +47,8 @@ public class OrdersController {
 	
 	@GetMapping("vieworders")
 	public String vieworders(Integer orderId, Model model) {
-		// ?
-		System.out.println("id ===> " + orderId);
-		Optional<OrdersEntity> op = repositoryOrder.findById(orderId);
-		if (op.isEmpty()) {
-			// not found
-		} else {
-			// data found
-			OrdersEntity order = op.get();
-			// send data to jsp ->
-			model.addAttribute("order", order);
-
-		}
+		List<Object[]> op = repositoryOrder.getByOrderId(orderId);
+		model.addAttribute("order", op);
 
 		return "ViewOrders";
 	}

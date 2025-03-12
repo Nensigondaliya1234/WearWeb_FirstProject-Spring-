@@ -11,9 +11,28 @@
 <body class="container mt-5">
 
     <div class="card shadow-lg p-4">
-        <h2 class="text-primary mb-4">View Orders</h2>
-        <p><strong>Total Amount:</strong> ${order.totalAmount }</p>
-        <p><strong>Status:</strong> ${order.status }</p>
+        <table class="table datatable datatable-table table-hover" id="orders">
+										<thead>
+										  <th>Status</th>
+                                          <th>Total Amount</th>
+                                          <th>FirstName</th>
+                                          <th>LastName</th>
+                                          
+										</thead>
+
+										<tbody>
+											
+												<tr>
+												    <td>${order[0][2]}</td>
+                                                    <td>${order[0][3]}</td>
+                                                    <td>${order[0][5]}</td>
+                                                    <td>${order[0][6]}</td>
+							             			
+												</tr>
+										</tbody>
+
+									</table>
+
 
         <%-- <a href="orders.jsp" class="btn btn-primary mt-3">Back to Orders</a>--%>
     </div>

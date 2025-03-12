@@ -1,8 +1,6 @@
 package com.grownited.controller;
 
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -54,19 +52,8 @@ public class OrderDetailController {
 	
 	@GetMapping("vieworderdetail")
 	public String vieworderdetail(Integer orderDetailId, Model model) {
-		// ?
-		System.out.println("id ===> " + orderDetailId);
-		Optional<OrderDetailEntity> op = repositoryOrderdetail.findById(orderDetailId);
-		if (op.isEmpty()) {
-			// not found
-		} else {
-			// data found
-			OrderDetailEntity orderdetail = op.get();
-			// send data to jsp ->
-			model.addAttribute("orderdetail", orderdetail);
-
-		}
-
+		List<Object[]> op = repositoryOrderdetail.getByOrderDetailId(orderDetailId);
+		model.addAttribute("orderDetail", op);
 		return "ViewOrderDetail";
 	}
 	
