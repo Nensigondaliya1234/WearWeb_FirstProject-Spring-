@@ -13,7 +13,7 @@ public class AreaEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer areaId;//primary key 
 	private String areaname;
-	private Integer cityId;//primary key 
+	
 
 	public Integer getAreaId() {
 		return areaId;
@@ -27,11 +27,6 @@ public class AreaEntity {
 	public void setAreaname(String areaname) {
 		this.areaname = areaname;
 	}
-	public Integer getCityId() {
-		return cityId;
-	}
-	public void setCityId(Integer cityId) {
-		this.cityId = cityId;
-	}
+	
 	
 }

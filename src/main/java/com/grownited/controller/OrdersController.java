@@ -3,6 +3,8 @@ package com.grownited.controller;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -56,6 +58,40 @@ public class OrdersController {
 	@GetMapping("deleteorders")
 	public String deleteorders(Integer orderId) {
 		repositoryOrder.deleteById(orderId);//delete from members where memberID = :memberId
+		return "redirect:/listorder";
+	}
+	
+	
+	@GetMapping("editorders")
+	public String editorders(Integer orderId,Model model) {
+		Optional<OrdersEntity> op = repositoryOrder.findById(orderId);
+		if (op.isEmpty()) {
+			return "redirect:/listorders";
+		} else {
+			model.addAttribute("order",op.get());
+			return "EditOrders";
+
+		}
+	}
+	//save -> entity -> no id present -> insert 
+	//save -> entity -> id present -> not present in db -> insert 
+	//save -> entity -> id present -> present in db -> update  
+
+	@PostMapping("updateorder")
+	public String updateorders(OrdersEntity orderEntity) {//pcode vhreg type vid 
+		
+		System.out.println(orderEntity.getOrderId());//id? db? 
+
+		Optional<OrdersEntity> op = repositoryOrder.findById(orderEntity.getOrderId());
+		
+		if(op.isPresent())
+		{
+			OrdersEntity dbOrder = op.get(); //pcode vhreg type id userId 
+			dbOrder.setStatus(orderEntity.getStatus());//code 
+			//dbVehicle.setVehicleType(v.getVehicleType());//type 
+			//
+			repositoryOrder.save(dbOrder);
+		}
 		return "redirect:/listorder";
 	}
 }

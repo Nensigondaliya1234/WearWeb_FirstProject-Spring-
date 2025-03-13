@@ -70,7 +70,7 @@
                                                     <td>${p.offerePercentage}%</td>
                                                     <td>${p.offerePrice}</td>
                                                     <td>${p.productDetail}</td>
-							             			<td><a href="#">Edit</a> |<a href="deleteproduct?productId=${p.productId}">Delete</a>|
+							             			<td><a href="editproduct?productId=${p.productId}">Edit</a> |<a href="deleteproduct?productId=${p.productId}">Delete</a>|
 													 <a href="viewproduct?productId=${p.productId}">View</a>
 													 </td>
 												</tr>

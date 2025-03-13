@@ -15,7 +15,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
-
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import com.grownited.entity.UserEntity;
@@ -233,6 +232,47 @@ public class SessionController {
 		model.addAttribute("msg","Password updated");
 		return "Login";
 	}
+	
+	
+	@GetMapping("edituser")
+	public String edituser(Integer userId,Model model) {
+		Optional<UserEntity> op = repouserEntity.findById(userId);
+		if (op.isEmpty()) {
+			return "redirect:/listuser";
+		} else {
+			model.addAttribute("user",op.get());
+			return "EditUser";
+
+		}
+	}
+	//save -> entity -> no id present -> insert 
+	//save -> entity -> id present -> not present in db -> insert 
+	//save -> entity -> id present -> present in db -> update  
+
+	@PostMapping("updateuser")
+	public String updateuser(UserEntity userEntity) {//pcode vhreg type vid 
+		
+		System.out.println(userEntity.getUserId());//id? db? 
+
+		Optional<UserEntity> op = repouserEntity.findById(userEntity.getUserId());
+		
+		if(op.isPresent())
+		{
+			UserEntity dbUser = op.get(); //pcode vhreg type id userId 
+			dbUser.setContactNum(userEntity.getContactNum());//code 
+			dbUser.setFirstName(userEntity.getFirstName());//code 
+			dbUser.setLastName(userEntity.getLastName());
+			dbUser.setEmail(userEntity.getEmail());//code
+			dbUser.setGender(userEntity.getGender());//code 
+
+
+
+			//
+			repouserEntity.save(dbUser);
+		}
+		return "redirect:/listuser";
+	}
+	
 
 }
 	

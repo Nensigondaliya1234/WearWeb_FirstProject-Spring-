@@ -70,7 +70,7 @@
                                                     <td>${m[6]}</td>
                                                     <td>${m[7]}</td>
                                                     <td>${m[8]}</td>
-							             			<td><a href="#">Edit</a> |<a href="deletereviews?reviewsId=${m[0]}">Delete</a>|
+							             			<td><a href="editreviews?reviewsId=${m[0]}">Edit</a> |<a href="deletereviews?reviewsId=${m[0]}">Delete</a>|
 													 <a href="viewreviews?reviewsId=${m[0]}">View</a>
 													 </td>
 												</tr>

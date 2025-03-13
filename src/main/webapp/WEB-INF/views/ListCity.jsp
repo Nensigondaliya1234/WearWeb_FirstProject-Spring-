@@ -64,7 +64,7 @@
 												<tr>
 												    <td>${u[1]}</td>
 													<td>${u[3]}</td>
-							             			<td><a href="#">Edit</a> |<a href="deletecity?cityId=${u[0]}">Delete</a>|
+							             			<td><a href="editcity?cityId=${u[0]}">Edit</a> |<a href="deletecity?cityId=${u[0]}">Delete</a>|
 													 <a href="viewcity?cityId=${u[0]}">View</a>
 													 </td>
 												</tr>

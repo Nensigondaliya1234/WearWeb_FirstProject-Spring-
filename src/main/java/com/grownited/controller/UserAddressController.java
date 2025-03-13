@@ -1,6 +1,8 @@
 package com.grownited.controller;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -69,6 +71,44 @@ public class UserAddressController {
 	@GetMapping("deleteuseraddress")
 	public String deleteuseraddress(Integer userAddressId) {
 		repositoryUserAddress.deleteById(userAddressId);//delete from members where memberID = :memberId
+		return "redirect:/listuseraddress";
+	}
+	
+	
+	@GetMapping("edituseraddress")
+	public String edituseraddress(Integer userAddressId,Model model) {
+		Optional<UserAddressEntity> op = repositoryUserAddress.findById(userAddressId);
+		if (op.isEmpty()) {
+			return "redirect:/listuseraddress";
+		} else {
+			model.addAttribute("useraddress",op.get());
+			return "EditUserAddress";
+
+		}
+	}
+	//save -> entity -> no id present -> insert 
+	//save -> entity -> id present -> not present in db -> insert 
+	//save -> entity -> id present -> present in db -> update  
+
+	@PostMapping("updateuseraddress")
+	public String updateuseraddress(UserAddressEntity useraddressEntity) {//pcode vhreg type vid 
+		
+		System.out.println(useraddressEntity.getUserAddressId());//id? db? 
+
+		Optional<UserAddressEntity> op = repositoryUserAddress.findById(useraddressEntity.getUserAddressId());
+		
+		if(op.isPresent())
+		{
+			UserAddressEntity dbUserAddress = op.get(); //pcode vhreg type id userId 
+			dbUserAddress.setLandMark(useraddressEntity.getLandMark());//code 
+			dbUserAddress.setStreet(useraddressEntity.getStreet());//code 
+			dbUserAddress.setTitle(useraddressEntity.getTitle());//code 
+			dbUserAddress.setUnitName(useraddressEntity.getUnitName());//code 
+			dbUserAddress.setZipcode(useraddressEntity.getZipcode());//code 
+
+			//
+			repositoryUserAddress.save(dbUserAddress);
+		}
 		return "redirect:/listuseraddress";
 	}
 }

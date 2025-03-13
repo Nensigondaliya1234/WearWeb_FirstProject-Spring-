@@ -3,6 +3,8 @@ package com.grownited.controller;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -65,4 +67,41 @@ List<ProductEntity> allProduct = repositoryProduct.findAll();// all state
 		repositoryreviews.deleteById(reviewsId);//delete from members where memberID = :memberId
 		return "redirect:/listreviews";
 	}
+	
+	@GetMapping("editreviews")
+	public String editreviews(Integer reviewsId,Model model) {
+		Optional<ReviewsEntity> op = repositoryreviews.findById(reviewsId);
+		if (op.isEmpty()) {
+			return "redirect:/listreviews";
+		} else {
+			model.addAttribute("reviews",op.get());
+			return "EditReviews";
+
+		}
+	}
+	//save -> entity -> no id present -> insert 
+	//save -> entity -> id present -> not present in db -> insert 
+	//save -> entity -> id present -> present in db -> update  
+
+	@PostMapping("updatereviews")
+	public String updatereviews(ReviewsEntity reviewsEntity) {//pcode vhreg type vid 
+		
+		System.out.println(reviewsEntity.getReviewsId());//id? db? 
+
+		Optional<ReviewsEntity> op = repositoryreviews.findById(reviewsEntity.getReviewsId());
+		
+		if(op.isPresent())
+		{
+			ReviewsEntity dbReviews = op.get(); //pcode vhreg type id userId 
+			dbReviews.setRating(reviewsEntity.getRating());//code 
+			dbReviews.setReviewText(reviewsEntity.getReviewText());//code 
+
+			//dbVehicle.setVehicleType(v.getVehicleType());//type 
+			//
+			repositoryreviews.save(dbReviews);
+		}
+		return "redirect:/listreviews";
+	}
+	
+	
 }

@@ -63,7 +63,39 @@ public class StateController {
 		return "redirect:/liststate";
 	}
 	
-    
+	@GetMapping("editstate")
+	public String editstate(Integer stateId,Model model) {
+		Optional<StateEntity> op = repositorystate.findById(stateId);
+		if (op.isEmpty()) {
+			return "redirect:/liststate";
+		} else {
+			model.addAttribute("state",op.get());
+			return "EditState";
+
+		}
+	}
+	//save -> entity -> no id present -> insert 
+	//save -> entity -> id present -> not present in db -> insert 
+	//save -> entity -> id present -> present in db -> update  
+
+	@PostMapping("updatestate")
+	public String updatestate(StateEntity stateEntity) {//pcode vhreg type vid 
+		
+		System.out.println(stateEntity.getStateId());//id? db? 
+
+		Optional<StateEntity> op = repositorystate.findById(stateEntity.getStateId());
+		
+		if(op.isPresent())
+		{
+			StateEntity dbState = op.get(); //pcode vhreg type id userId 
+			dbState.setStatename(stateEntity.getStatename());//code 
+			//dbVehicle.setVehicleType(v.getVehicleType());//type 
+			//
+			repositorystate.save(dbState);
+		}
+		return "redirect:/liststate";
+	}
+	
 	
     
 }

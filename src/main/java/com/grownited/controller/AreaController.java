@@ -73,4 +73,38 @@ public class AreaController {
 	}
 	
 	
+	@GetMapping("editarea")
+	public String editarea(Integer areaId,Model model) {
+		Optional<AreaEntity> op = repositoryArea.findById(areaId);
+		if (op.isEmpty()) {
+			return "redirect:/listarea";
+		} else {
+			model.addAttribute("area",op.get());
+			return "EditArea";
+
+		}
+	}
+	//save -> entity -> no id present -> insert 
+	//save -> entity -> id present -> not present in db -> insert 
+	//save -> entity -> id present -> present in db -> update  
+
+	@PostMapping("updatearea")
+	public String updatearea(AreaEntity areaEntity) {//pcode vhreg type vid 
+		
+		System.out.println(areaEntity.getAreaId());//id? db? 
+
+		Optional<AreaEntity> op = repositoryArea.findById(areaEntity.getAreaId());
+		
+		if(op.isPresent())
+		{
+			AreaEntity dbArea = op.get(); //pcode vhreg type id userId 
+			dbArea.setAreaname(areaEntity.getAreaname());//code 
+			//dbVehicle.setVehicleType(v.getVehicleType());//type 
+			//
+			repositoryArea.save(dbArea);
+		}
+		return "redirect:/listarea";
+	}
+	
+	
 }

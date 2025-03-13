@@ -1,6 +1,8 @@
 package com.grownited.controller;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -59,6 +61,40 @@ List<ProductEntity> allProduct = repositoryProduct.findAll();// all state
 	@GetMapping("deletecart")
 	public String deletecart(Integer cartId) {
 		repositoryCart.deleteById(cartId);//delete from members where memberID = :memberId
+		return "redirect:/listcart";
+	}
+	
+	
+	@GetMapping("editcart")
+	public String editcart(Integer cartId,Model model) {
+		Optional<CartEntity> op = repositoryCart.findById(cartId);
+		if (op.isEmpty()) {
+			return "redirect:/listcart";
+		} else {
+			model.addAttribute("cart",op.get());
+			return "EditCart";
+
+		}
+	}
+	//save -> entity -> no id present -> insert 
+	//save -> entity -> id present -> not present in db -> insert 
+	//save -> entity -> id present -> present in db -> update  
+
+	@PostMapping("updatecart")
+	public String updatecart(CartEntity cartEntity) {//pcode vhreg type vid 
+		
+		System.out.println(cartEntity.getCartId());//id? db? 
+
+		Optional<CartEntity> op = repositoryCart.findById(cartEntity.getCartId());
+		
+		if(op.isPresent())
+		{
+			CartEntity dbCart = op.get(); //pcode vhreg type id userId 
+			dbCart.setQuantity(cartEntity.getQuantity());//code 
+			//dbVehicle.setVehicleType(cartEntity.getVehicleType());//type 
+			//
+			repositoryCart.save(dbCart);
+		}
 		return "redirect:/listcart";
 	}
 }

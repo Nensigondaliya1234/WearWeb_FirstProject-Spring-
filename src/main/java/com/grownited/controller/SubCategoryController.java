@@ -1,6 +1,8 @@
 package com.grownited.controller;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -57,5 +59,41 @@ public class SubCategoryController {
 		repositorySubCategory.deleteById(subCategoryId);//delete from members where memberID = :memberId
 		return "redirect:/listsubcategory";
 	}
+	
+	
+	@GetMapping("editsubcategory")
+	public String editsubcategory(Integer subCategoryId,Model model) {
+		Optional<SubCategoryEntity> op = repositorySubCategory.findById(subCategoryId);
+		if (op.isEmpty()) {
+			return "redirect:/listsubcategory";
+		} else {
+			model.addAttribute("subcategory",op.get());
+			return "EditSubCategory";
+
+		}
+	}
+	//save -> entity -> no id present -> insert 
+	//save -> entity -> id present -> not present in db -> insert 
+	//save -> entity -> id present -> present in db -> update  
+
+	@PostMapping("updatesubcategory")
+	public String updatesubcategory(SubCategoryEntity subcategoryEntity) {//pcode vhreg type vid 
+		
+		System.out.println(subcategoryEntity.getSubCategoryId());//id? db? 
+
+		Optional<SubCategoryEntity> op = repositorySubCategory.findById(subcategoryEntity.getSubCategoryId());
+		
+		if(op.isPresent())
+		{
+			SubCategoryEntity dbSubCategory = op.get(); //pcode vhreg type id userId 
+			dbSubCategory.setSubCategoryname(subcategoryEntity.getSubCategoryname());//code 
+			//dbVehicle.setVehicleType(v.getVehicleType());//type 
+			//
+			repositorySubCategory.save(dbSubCategory);
+		}
+		return "redirect:/listsubcategory";
+	}
+	
+	
 	
 }

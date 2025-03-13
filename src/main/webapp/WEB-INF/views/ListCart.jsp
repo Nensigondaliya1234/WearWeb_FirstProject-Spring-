@@ -70,7 +70,7 @@
 													<td>${u[4]}</td>
 													<td>${u[5]}</td>
 													<td>${u[6]}</td>
-							             			<td><a href="#">Edit</a> |<a href="deletecart?cartId=${u[0]}">Delete</a>|
+							             			<td><a href="editcart?cartId=${u[0]}">Edit</a> |<a href="deletecart?cartId=${u[0]}">Delete</a>|
 													 <a href="viewcart?cartId=${u[0]}">View</a>
 													 </td>
 												</tr>

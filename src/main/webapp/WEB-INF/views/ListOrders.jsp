@@ -68,7 +68,7 @@
                                                     <td>${o[3]}</td>
                                                     <td>${o[5]}</td>
                                                     <td>${o[6]}</td>
-							             			<td><a href="#">Edit</a> |<a href="deleteorders?orderId=${o[0]}">Delete</a>|
+							             			<td><a href="editorders?orderId=${o[0]}">Edit</a> |<a href="deleteorders?orderId=${o[0]}">Delete</a>|
 													 <a href="vieworders?orderId=${o[0]}">View</a>
 													 </td>
 												</tr>

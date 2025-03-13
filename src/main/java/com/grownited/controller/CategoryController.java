@@ -61,4 +61,39 @@ public class CategoryController {
 		repositoryCategory.deleteById(categoryId);//delete from members where memberID = :memberId
 		return "redirect:/listcategory";
 	}
+	
+	
+	
+	@GetMapping("editcategory")
+	public String editcategoey(Integer categoryId,Model model) {
+		Optional<CategoryEntity> op = repositoryCategory.findById(categoryId);
+		if (op.isEmpty()) {
+			return "redirect:/listcategory";
+		} else {
+			model.addAttribute("category",op.get());
+			return "EditCategory";
+
+		}
+	}
+	//save -> entity -> no id present -> insert 
+	//save -> entity -> id present -> not present in db -> insert 
+	//save -> entity -> id present -> present in db -> update  
+
+	@PostMapping("updatecategory")
+	public String updatecategory(CategoryEntity categoryEntity) {//pcode vhreg type vid 
+		
+		System.out.println(categoryEntity.getCategoryId());//id? db? 
+
+		Optional<CategoryEntity> op = repositoryCategory.findById(categoryEntity.getCategoryId());
+		
+		if(op.isPresent())
+		{
+			CategoryEntity dbCategory = op.get(); //pcode vhreg type id userId 
+			dbCategory.setCategoryname(categoryEntity.getCategoryname());//code 
+			//dbVehicle.setVehicleType(cartEntity.getVehicleType());//type 
+			//
+			repositoryCategory.save(dbCategory);
+		}
+		return "redirect:/listcategory";
+	}
 }

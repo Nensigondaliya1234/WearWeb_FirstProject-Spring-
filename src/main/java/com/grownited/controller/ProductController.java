@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import com.grownited.entity.CategoryEntity;
 import com.grownited.entity.ProductEntity;
 import com.grownited.entity.SubCategoryEntity;
@@ -78,6 +77,44 @@ public class ProductController {
 	@GetMapping("deleteproduct")
 	public String deleteproduct(Integer productId) {
 		repositoryproduct.deleteById(productId);//delete from members where memberID = :memberId
+		return "redirect:/listproduct";
+	}
+	
+	
+	@GetMapping("editproduct")
+	public String editproduct(Integer productId,Model model) {
+		Optional<ProductEntity> op = repositoryproduct.findById(productId);
+		if (op.isEmpty()) {
+			return "redirect:/listproduct";
+		} else {
+			model.addAttribute("product",op.get());
+			return "EditProduct";
+
+		}
+	}
+	//save -> entity -> no id present -> insert 
+	//save -> entity -> id present -> not present in db -> insert 
+	//save -> entity -> id present -> present in db -> update  
+
+	@PostMapping("updateproduct")
+	public String updateproduct(ProductEntity productEntity) {//pcode vhreg type vid 
+		
+		System.out.println(productEntity.getProductId());//id? db? 
+
+		Optional<ProductEntity> op = repositoryproduct.findById(productEntity.getProductId());
+		
+		if(op.isPresent())
+		{
+			ProductEntity dbProduct = op.get(); //pcode vhreg type id userId 
+			dbProduct.setOfferePrice(productEntity.getOfferePrice());//code
+			dbProduct.setOfferePercentage(productEntity.getOfferePercentage());//code 
+			dbProduct.setProductImageURL1(productEntity.getProductImageURL1());//code 
+			dbProduct.setProductImageURL2(productEntity.getProductImageURL2());//code 
+			dbProduct.setProductImageURL3(productEntity.getProductImageURL3());//code 
+			dbProduct.setProductName(productEntity.getProductName());//code 
+
+			repositoryproduct.save(dbProduct);
+		}
 		return "redirect:/listproduct";
 	}
 }

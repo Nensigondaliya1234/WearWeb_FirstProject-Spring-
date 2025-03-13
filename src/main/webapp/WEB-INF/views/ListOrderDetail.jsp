@@ -70,7 +70,7 @@
                                                     <td>${o[2]}</td>
                                                     <td>${o[7]}</td>
                                                     <td>${o[6]}</td>
-							             			<td><a href="#">Edit</a> |<a href="deleteorderdetail?orderDetailId=${o[0]}">Delete</a>|
+							             			<td><a href="editorderdetail?orderDetailId=${o[0]}">Edit</a> |<a href="deleteorderdetail?orderDetailId=${o[0]}">Delete</a>|
 													 <a href="vieworderdetail?orderDetailId=${o[0]}">View</a>
 													 </td>
 												</tr>

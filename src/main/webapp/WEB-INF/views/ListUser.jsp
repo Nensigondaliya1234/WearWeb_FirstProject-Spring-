@@ -58,6 +58,7 @@
 					                      <th>Last Name</th>
 					                      <th>Email</th>
 					                      <th>Contact Number</th>
+					                      <th>Gender</th>
 					                      <th>Created At</th>
 				                          <th>Actions</th>
 										</thead>
@@ -69,8 +70,9 @@
                                                     <td>${m.lastName}</td>
                                                     <td>${m.email}</td>
                                                     <td>${m.contactNum}</td>
+                                                    <td>${m.gender}</td>
                                                     <td>${m.createdAt}</td>
-                                                    <td><a href="#">Edit</a> |<a href="deleteuser?userId=${m.userId}">Delete</a>|
+                                                    <td><a href="edituser?userId=${m.userId}">Edit</a> |<a href="deleteuser?userId=${m.userId}">Delete</a>|
 													 <a href="viewuser?userId=${m.userId}">View</a>
 													 </td>
 												</tr>

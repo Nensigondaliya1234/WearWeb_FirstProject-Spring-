@@ -62,7 +62,7 @@
 											<c:forEach items="${areaList}" var="u">
 												<tr>
 													<td>${u.areaname}</td>
-							             			<td><a href="#">Edit</a> |<a href="deletearea?areaId=${u.areaId}">Delete</a>|
+							             			<td><a href="editarea?areaId=${u.areaId}">Edit</a> |<a href="deletearea?areaId=${u.areaId}">Delete</a>|
 													 <a href="viewarea?areaId=${u.areaId}">View</a>
 													 </td>
 												</tr>
