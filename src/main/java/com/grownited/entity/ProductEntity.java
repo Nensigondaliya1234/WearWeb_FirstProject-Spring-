@@ -1,6 +1,5 @@
 package com.grownited.entity;
-import java.util.Date;
-
+import java.time.LocalDate;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,10 +19,10 @@ public class ProductEntity {
 	private Integer offerePercentage;
 	private Integer offerePrice;
 	private String productDetail;
-	private String productImageURL1;
-	private String productImageURL2;
-	private String productImageURL3;
-	private Date createdAt;
+	private String productImage;
+	private String productImage2;
+	private String productImage3;
+	private LocalDate createdAt;
 	private String quantity;
 	public Integer getProductId() {
 		return productId;
@@ -73,29 +72,30 @@ public class ProductEntity {
 	public void setProductDetail(String productDetail) {
 		this.productDetail = productDetail;
 	}
-	public String getProductImageURL1() {
-		return productImageURL1;
+	
+	public String getProductImage() {
+		return productImage;
 	}
-	public void setProductImageURL1(String productImageURL1) {
-		this.productImageURL1 = productImageURL1;
+	public void setProductImage(String productImage) {
+		this.productImage = productImage;
 	}
-	public String getProductImageURL2() {
-		return productImageURL2;
+	public String getProductImage2() {
+		return productImage2;
 	}
-	public void setProductImageURL2(String productImageURL2) {
-		this.productImageURL2 = productImageURL2;
+	public void setProductImage2(String productImage2) {
+		this.productImage2 = productImage2;
 	}
-	public String getProductImageURL3() {
-		return productImageURL3;
+	public String getProductImage3() {
+		return productImage3;
 	}
-	public void setProductImageURL3(String productImageURL3) {
-		this.productImageURL3 = productImageURL3;
+	public void setProductImage3(String productImage3) {
+		this.productImage3 = productImage3;
 	}
 	
-	public Date getCreatedAt() {
+	public LocalDate getCreatedAt() {
 		return createdAt;
 	}
-	public void setCreatedAt(Date createdAt) {
+	public void setCreatedAt(LocalDate createdAt) {
 		this.createdAt = createdAt;
 	}
 	public String getQuantity() {

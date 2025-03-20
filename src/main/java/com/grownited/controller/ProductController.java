@@ -1,6 +1,4 @@
 package com.grownited.controller;
-
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -10,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
 import com.grownited.entity.CategoryEntity;
 import com.grownited.entity.ProductEntity;
 import com.grownited.entity.SubCategoryEntity;
@@ -41,8 +40,8 @@ public class ProductController {
 	
 	@PostMapping("saveproduct")
 	public String saveproduct(ProductEntity productEntity) {
-		productEntity.setCreatedAt(Date.valueOf(LocalDate.now()));
-
+		productEntity.setCreatedAt(LocalDate.now());
+		
 		repositoryproduct.save(productEntity);
 
 		return "Product";
@@ -108,9 +107,9 @@ public class ProductController {
 			ProductEntity dbProduct = op.get(); //pcode vhreg type id userId 
 			dbProduct.setOfferePrice(productEntity.getOfferePrice());//code
 			dbProduct.setOfferePercentage(productEntity.getOfferePercentage());//code 
-			dbProduct.setProductImageURL1(productEntity.getProductImageURL1());//code 
-			dbProduct.setProductImageURL2(productEntity.getProductImageURL2());//code 
-			dbProduct.setProductImageURL3(productEntity.getProductImageURL3());//code 
+			dbProduct.setProductImage(productEntity.getProductImage());//code 
+			dbProduct.setProductImage2(productEntity.getProductImage2());//code 
+			dbProduct.setProductImage3(productEntity.getProductImage3());//code 
 			dbProduct.setProductName(productEntity.getProductName());//code 
 
 			repositoryproduct.save(dbProduct);

@@ -93,9 +93,9 @@
             <input type="number" name="offerePrice" placeholder="Offer Price" required>
             <input type="number" name="offerePercentage" placeholder="Offer Percentage" required>
             <input type="text" name="productDetail" placeholder="Product Detail" required>
-            <input type="url" name="productImageURL1" placeholder="Product Image URL 1" required>
-            <input type="url" name="productImageURL2" placeholder="Product Image URL 2">
-            <input type="url" name="productImageURL3" placeholder="Product Image URL 3">
+            <input type="file" name="productImage" placeholder="Product Image URL 1" required>
+            <input type="file" name="productImage2" placeholder="Product Image URL 2">
+            <input type="file" name="productImage3" placeholder="Product Image URL 3">
             <input type="number" name="quantity" placeholder="Quntity" required>
             <button type="submit">Add Product</button>
         </form>

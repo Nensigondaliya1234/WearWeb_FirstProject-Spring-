@@ -1,6 +1,4 @@
 package com.grownited.controller;
-
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -39,7 +37,7 @@ public class WishlistController {
 		UserEntity user = (UserEntity) session.getAttribute("user");
 		Integer userId = user.getUserId(); 
 		wishlistEntity.setUserId(userId);
-		wishlistEntity.setCreatedAt(Date.valueOf(LocalDate.now()));
+		wishlistEntity.setCreatedAt(LocalDate.now());
 
 		repositoryWishlist.save(wishlistEntity);
 

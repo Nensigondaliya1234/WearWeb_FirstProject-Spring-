@@ -1,6 +1,4 @@
 package com.grownited.controller;
-
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -39,7 +37,7 @@ List<ProductEntity> allProduct = repositoryProduct.findAll();// all state
 		UserEntity user = (UserEntity) session.getAttribute("user");
 		Integer userId = user.getUserId(); 
 		reviewsEntity.setUserId(userId);
-		reviewsEntity.setCreatedAt(Date.valueOf(LocalDate.now()));
+		reviewsEntity.setCreatedAt(LocalDate.now());
 
 		repositoryreviews.save(reviewsEntity);
 
